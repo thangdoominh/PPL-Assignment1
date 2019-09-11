@@ -26,8 +26,7 @@ options{
 	language=Python3;
 }
 
-program  : mctype STRINGLIT EOF ;
-//program : mctype COMMENTS_LINE EOF;
+program  : mctype arraypointertype EOF ;
 
 mctype: INTTYPE | VOIDTYPE | FLOATTYPE |STRINGTYPE | BOOLTYPE;
 
@@ -36,6 +35,12 @@ body: funcall SEMI;
 exp: funcall | INTLIT ;
 
 funcall: ID LB exp? RB ;
+
+arrayid            : ID LSB INTLIT RSB;
+
+arraypointertype    : mctype LSB RSB ;
+
+
 
 // Type value
 INTTYPE     : 'int';
@@ -109,7 +114,6 @@ EXPONENT    : (FRAC|INTLIT)[eE][+-]?INTLIT ;
 BOOLLIT     : TRUE|FALSE;
 
 STRINGLIT   :'"' ('\\' [bfrnt"\\] |~[\b\f\r\n\t"\\])* '"';
-
 
 
 ERROR_CHAR: .;

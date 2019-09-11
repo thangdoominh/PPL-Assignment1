@@ -53,3 +53,21 @@ class MCListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MCParser#arrayid.
+    def enterArrayid(self, ctx:MCParser.ArrayidContext):
+        pass
+
+    # Exit a parse tree produced by MCParser#arrayid.
+    def exitArrayid(self, ctx:MCParser.ArrayidContext):
+        pass
+
+
+    # Enter a parse tree produced by MCParser#arraypointertype.
+    def enterArraypointertype(self, ctx:MCParser.ArraypointertypeContext):
+        pass
+
+    # Exit a parse tree produced by MCParser#arraypointertype.
+    def exitArraypointertype(self, ctx:MCParser.ArraypointertypeContext):
+        pass
+
+
