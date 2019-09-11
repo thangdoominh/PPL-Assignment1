@@ -1,1 +1,14 @@
-123,a,123,<EOF>
+       int	INTTYPE
+      main	ID
+         (	LB
+         )	RB
+         {	LP
+     FLOAT	ID
+         a	ID
+         ;	SEMI
+     "abc"	STRINGLIT
+         =	ASSIGN_OP
+       1.0	FLOATLIT
+         ;	SEMI
+         }	RP
+<EOF>

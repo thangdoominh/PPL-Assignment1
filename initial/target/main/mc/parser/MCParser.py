@@ -1,4 +1,4 @@
-# Generated from /Users/dominhthang/Thang/HK-191/Principles-Of-Programming-Languages/Assignment/PPL-Assignment1/initial/src/main/mc/parser/MC.g4 by ANTLR 4.7.2
+# Generated from main/mc/parser/MC.g4 by ANTLR 4.7.2
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -8,17 +8,17 @@ import sys
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\63")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\65")
         buf.write("!\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\2")
         buf.write("\3\2\3\3\3\3\3\4\3\4\3\4\3\5\3\5\5\5\30\n\5\3\6\3\6\3")
         buf.write("\6\5\6\35\n\6\3\6\3\6\3\6\2\2\7\2\4\6\b\n\2\3\4\2\3\3")
         buf.write("\5\7\2\35\2\f\3\2\2\2\4\20\3\2\2\2\6\22\3\2\2\2\b\27\3")
-        buf.write("\2\2\2\n\31\3\2\2\2\f\r\5\4\3\2\r\16\7-\2\2\16\17\7\2")
+        buf.write("\2\2\2\n\31\3\2\2\2\f\r\5\4\3\2\r\16\7.\2\2\16\17\7\2")
         buf.write("\2\3\17\3\3\2\2\2\20\21\t\2\2\2\21\5\3\2\2\2\22\23\5\n")
-        buf.write("\6\2\23\24\7*\2\2\24\7\3\2\2\2\25\30\5\n\6\2\26\30\7,")
+        buf.write("\6\2\23\24\7+\2\2\24\7\3\2\2\2\25\30\5\n\6\2\26\30\7-")
         buf.write("\2\2\27\25\3\2\2\2\27\26\3\2\2\2\30\t\3\2\2\2\31\32\7")
-        buf.write("\13\2\2\32\34\7(\2\2\33\35\5\b\5\2\34\33\3\2\2\2\34\35")
-        buf.write("\3\2\2\2\35\36\3\2\2\2\36\37\7)\2\2\37\13\3\2\2\2\4\27")
+        buf.write("\f\2\2\32\34\7)\2\2\33\35\5\b\5\2\34\33\3\2\2\2\34\35")
+        buf.write("\3\2\2\2\35\36\3\2\2\2\36\37\7*\2\2\37\13\3\2\2\2\4\27")
         buf.write("\34")
         return buf.getvalue()
 
@@ -35,21 +35,22 @@ class MCParser ( Parser ):
 
     literalNames = [ "<INVALID>", "'int'", "'boolean'", "'string'", "'float'", 
                      "'void'", "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "'break'", "'continue'", "'else'", "'for'", "'if'", 
-                     "'do'", "'while'", "'true'", "'false'", "'+'", "'-'", 
-                     "'*'", "'/'", "'!'", "'%'", "'|'", "'&&'", "'!='", 
+                     "<INVALID>", "'break'", "'continue'", "'else'", "'for'", 
+                     "'if'", "'do'", "'while'", "'true'", "'false'", "'+'", 
+                     "'-'", "'*'", "'/'", "'!'", "'%'", "'|'", "'&&'", "'!='", 
                      "'=='", "'<'", "'>'", "'<='", "'>='", "'='", "'['", 
                      "']'", "'{'", "'}'", "'('", "')'", "';'", "','" ]
 
     symbolicNames = [ "<INVALID>", "INTTYPE", "BOOLTYPE", "STRINGTYPE", 
-                      "FLOATTYPE", "VOIDTYPE", "WS", "COMMENTS_LINE", "COMMENTS_BLOCK", 
-                      "ID", "BREAK", "CONTINUE", "ELSE", "FOR", "IF", "DO", 
-                      "WHILE", "TRUE", "FALSE", "ADD_OP", "SUB_OP", "MUL_OP", 
-                      "DIV_OP", "NOT_OP", "MOD_OP", "OR_OP", "AND_OP", "NOT_EQUAL_OP", 
-                      "EQUAL_OP", "LESS_OP", "GREATER_OP", "LESS_EQUAL_OP", 
-                      "GREATER_EQUAL_OP", "ASSIGN_OP", "LSB", "RSB", "LP", 
-                      "RP", "LB", "RB", "SEMI", "COMMA", "INTLIT", "FLOATLIT", 
-                      "FRAC", "EXPONENT", "BOOLLIT", "ERROR_CHAR", "UNCLOSE_STRING", 
+                      "FLOATTYPE", "VOIDTYPE", "ARRAYTPE", "WS", "COMMENTS_LINE", 
+                      "COMMENTS_BLOCK", "ID", "BREAK", "CONTINUE", "ELSE", 
+                      "FOR", "IF", "DO", "WHILE", "TRUE", "FALSE", "ADD_OP", 
+                      "SUB_OP", "MUL_OP", "DIV_OP", "NOT_OP", "MOD_OP", 
+                      "OR_OP", "AND_OP", "NOT_EQUAL_OP", "EQUAL_OP", "LESS_OP", 
+                      "GREATER_OP", "LESS_EQUAL_OP", "GREATER_EQUAL_OP", 
+                      "ASSIGN_OP", "LSB", "RSB", "LP", "RP", "LB", "RB", 
+                      "SEMI", "COMMA", "INTLIT", "FLOATLIT", "FRAC", "EXPONENT", 
+                      "BOOLLIT", "STRINGLIT", "ERROR_CHAR", "UNCLOSE_STRING", 
                       "ILLEGAL_ESCAPE" ]
 
     RULE_program = 0
@@ -66,50 +67,52 @@ class MCParser ( Parser ):
     STRINGTYPE=3
     FLOATTYPE=4
     VOIDTYPE=5
-    WS=6
-    COMMENTS_LINE=7
-    COMMENTS_BLOCK=8
-    ID=9
-    BREAK=10
-    CONTINUE=11
-    ELSE=12
-    FOR=13
-    IF=14
-    DO=15
-    WHILE=16
-    TRUE=17
-    FALSE=18
-    ADD_OP=19
-    SUB_OP=20
-    MUL_OP=21
-    DIV_OP=22
-    NOT_OP=23
-    MOD_OP=24
-    OR_OP=25
-    AND_OP=26
-    NOT_EQUAL_OP=27
-    EQUAL_OP=28
-    LESS_OP=29
-    GREATER_OP=30
-    LESS_EQUAL_OP=31
-    GREATER_EQUAL_OP=32
-    ASSIGN_OP=33
-    LSB=34
-    RSB=35
-    LP=36
-    RP=37
-    LB=38
-    RB=39
-    SEMI=40
-    COMMA=41
-    INTLIT=42
-    FLOATLIT=43
-    FRAC=44
-    EXPONENT=45
-    BOOLLIT=46
-    ERROR_CHAR=47
-    UNCLOSE_STRING=48
-    ILLEGAL_ESCAPE=49
+    ARRAYTPE=6
+    WS=7
+    COMMENTS_LINE=8
+    COMMENTS_BLOCK=9
+    ID=10
+    BREAK=11
+    CONTINUE=12
+    ELSE=13
+    FOR=14
+    IF=15
+    DO=16
+    WHILE=17
+    TRUE=18
+    FALSE=19
+    ADD_OP=20
+    SUB_OP=21
+    MUL_OP=22
+    DIV_OP=23
+    NOT_OP=24
+    MOD_OP=25
+    OR_OP=26
+    AND_OP=27
+    NOT_EQUAL_OP=28
+    EQUAL_OP=29
+    LESS_OP=30
+    GREATER_OP=31
+    LESS_EQUAL_OP=32
+    GREATER_EQUAL_OP=33
+    ASSIGN_OP=34
+    LSB=35
+    RSB=36
+    LP=37
+    RP=38
+    LB=39
+    RB=40
+    SEMI=41
+    COMMA=42
+    INTLIT=43
+    FLOATLIT=44
+    FRAC=45
+    EXPONENT=46
+    BOOLLIT=47
+    STRINGLIT=48
+    ERROR_CHAR=49
+    UNCLOSE_STRING=50
+    ILLEGAL_ESCAPE=51
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -138,14 +141,6 @@ class MCParser ( Parser ):
 
         def getRuleIndex(self):
             return MCParser.RULE_program
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterProgram" ):
-                listener.enterProgram(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitProgram" ):
-                listener.exitProgram(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitProgram" ):
@@ -198,14 +193,6 @@ class MCParser ( Parser ):
         def getRuleIndex(self):
             return MCParser.RULE_mctype
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterMctype" ):
-                listener.enterMctype(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitMctype" ):
-                listener.exitMctype(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitMctype" ):
                 return visitor.visitMctype(self)
@@ -254,14 +241,6 @@ class MCParser ( Parser ):
         def getRuleIndex(self):
             return MCParser.RULE_body
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterBody" ):
-                listener.enterBody(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitBody" ):
-                listener.exitBody(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitBody" ):
                 return visitor.visitBody(self)
@@ -305,14 +284,6 @@ class MCParser ( Parser ):
 
         def getRuleIndex(self):
             return MCParser.RULE_exp
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterExp" ):
-                listener.enterExp(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitExp" ):
-                listener.exitExp(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitExp" ):
@@ -374,14 +345,6 @@ class MCParser ( Parser ):
 
         def getRuleIndex(self):
             return MCParser.RULE_funcall
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterFuncall" ):
-                listener.enterFuncall(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitFuncall" ):
-                listener.exitFuncall(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitFuncall" ):

@@ -1,1 +1,2 @@
-abc,<EOF>
+       abc	ID
+<EOF>

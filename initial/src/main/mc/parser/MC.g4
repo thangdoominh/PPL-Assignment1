@@ -1,3 +1,5 @@
+//  Do Minh Thang
+//  1713217
 grammar MC;
 
 @lexer::header {
@@ -6,28 +8,28 @@ from lexererr import *
 
 @lexer::member {
 def emit(self):
-    tk = self.type
-    if tk == UNCLOSE_STRING:       
-        result = super.emit();
-        raise UncloseString(result.text);
-    elif tk == ILLEGAL_ESCAPE:
-        result = super.emit();
-        raise IllegalEscape(result.text);
-    elif tk == ERROR_CHAR:
-        result = super.emit();
-        raise ErrorToken(result.text); 
-    else:
-        return super.emit();
+	tk = self.type
+	if tk == UNCLOSE_STRING:
+		result = super.emit();
+		raise UncloseString(result.text);
+	elif tk == ILLEGAL_ESCAPE:
+		result = super.emit();
+		raise IllegalEscape(result.text);
+	elif tk == ERROR_CHAR:
+		result = super.emit();
+		raise ErrorToken(result.text);
+	else:
+		return super.emit();
 }
 
 options{
 	language=Python3;
 }
 
-program  : mctype FLOATLIT EOF ;
+program  : mctype STRINGLIT EOF ;
 //program : mctype COMMENTS_LINE EOF;
 
-mctype: INTTYPE | VOIDTYPE ;
+mctype: INTTYPE | VOIDTYPE | FLOATTYPE |STRINGTYPE | BOOLTYPE;
 
 body: funcall SEMI;
 
@@ -41,6 +43,7 @@ BOOLTYPE    : 'boolean';
 STRINGTYPE  : 'string';
 FLOATTYPE   : 'float';
 VOIDTYPE    : 'void';
+
 
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
 
@@ -91,11 +94,23 @@ SEMI    : ';' ;
 COMMA   : ',';
 
 // 3.5 Literals
-INTLIT: [0-9]+;
-FLOATLIT: FRAC|EXPONENT;
-FRAC: INTLIT?'.'INTLIT|INTLIT'.'INTLIT?;
-EXPONENT: ;
-BOOLLIT: TRUE|FALSE;
+INTLIT      : [0-9]+;
+
+FLOATLIT    : FRAC
+			| EXPONENT
+			;
+
+FRAC        : [+-]INTLIT?'.'INTLIT
+			| INTLIT'.'INTLIT?
+			;
+
+EXPONENT    : (FRAC|INTLIT)[eE][+-]?INTLIT ;
+
+BOOLLIT     : TRUE|FALSE;
+
+STRINGLIT   :'"' ('\\' [bfrnt"\\] |~[\b\f\r\n\t"\\])* '"';
+
+
 
 ERROR_CHAR: .;
 UNCLOSE_STRING: .;

@@ -18,7 +18,10 @@ class TestUtil:
         file.close()
         return FileStream(filename)
 
-
+token_names={}
+for name, value in MCLexer.__dict__.items():
+    if isinstance(value, int) and name == name.upper():
+        token_names[value] = name
 class TestLexer:
     @staticmethod
     def checkLexeme(input,expect,num):
@@ -39,7 +42,8 @@ class TestLexer:
     def printLexeme(dest,lexer):
         tok = lexer.nextToken()
         if tok.type != Token.EOF:
-            dest.write(tok.text+",")
+            # dest.write(tok.text+",")
+            dest.write('{:>10}\t{}\n'.format(tok.text,token_names[tok.type]))
             TestLexer.printLexeme(dest,lexer)
         else:
             dest.write("<EOF>")
