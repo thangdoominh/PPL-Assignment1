@@ -26,7 +26,7 @@ options{
 	language=Python3;
 }
 
-program  : mctype arraypointertype EOF ;
+program  : mctype STRINGLIT EOF ;
 
 mctype: INTTYPE | VOIDTYPE | FLOATTYPE |STRINGTYPE | BOOLTYPE;
 
@@ -36,7 +36,7 @@ exp: funcall | INTLIT ;
 
 funcall: ID LB exp? RB ;
 
-arrayid            : ID LSB INTLIT RSB;
+arrayid             : ID LSB INTLIT RSB;
 
 arraypointertype    : mctype LSB RSB ;
 

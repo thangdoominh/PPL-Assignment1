@@ -15,7 +15,7 @@ def serializedATN():
         buf.write("\3\b\3\b\3\b\3\b\3\b\2\2\t\2\4\6\b\n\f\16\2\3\3\2\3\7")
         buf.write("\2(\2\20\3\2\2\2\4\24\3\2\2\2\6\26\3\2\2\2\b\33\3\2\2")
         buf.write("\2\n\35\3\2\2\2\f$\3\2\2\2\16)\3\2\2\2\20\21\5\4\3\2\21")
-        buf.write("\22\5\16\b\2\22\23\7\2\2\3\23\3\3\2\2\2\24\25\t\2\2\2")
+        buf.write("\22\7\61\2\2\22\23\7\2\2\3\23\3\3\2\2\2\24\25\t\2\2\2")
         buf.write("\25\5\3\2\2\2\26\27\5\n\6\2\27\30\7*\2\2\30\7\3\2\2\2")
         buf.write("\31\34\5\n\6\2\32\34\7,\2\2\33\31\3\2\2\2\33\32\3\2\2")
         buf.write("\2\34\t\3\2\2\2\35\36\7\13\2\2\36 \7(\2\2\37!\5\b\5\2")
@@ -136,9 +136,8 @@ class MCParser ( Parser ):
             return self.getTypedRuleContext(MCParser.MctypeContext,0)
 
 
-        def arraypointertype(self):
-            return self.getTypedRuleContext(MCParser.ArraypointertypeContext,0)
-
+        def STRINGLIT(self):
+            return self.getToken(MCParser.STRINGLIT, 0)
 
         def EOF(self):
             return self.getToken(MCParser.EOF, 0)
@@ -172,7 +171,7 @@ class MCParser ( Parser ):
             self.state = 14
             self.mctype()
             self.state = 15
-            self.arraypointertype()
+            self.match(MCParser.STRINGLIT)
             self.state = 16
             self.match(MCParser.EOF)
         except RecognitionException as re:

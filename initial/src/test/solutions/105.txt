@@ -1,0 +1,4 @@
+       int	INTTYPE
+         a	ID
+         ;	SEMI
+<EOF>

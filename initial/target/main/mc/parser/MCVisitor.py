@@ -34,5 +34,15 @@ class MCVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by MCParser#arrayid.
+    def visitArrayid(self, ctx:MCParser.ArrayidContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MCParser#arraypointertype.
+    def visitArraypointertype(self, ctx:MCParser.ArraypointertypeContext):
+        return self.visitChildren(ctx)
+
+
 
 del MCParser
