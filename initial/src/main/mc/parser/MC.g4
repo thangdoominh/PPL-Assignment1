@@ -26,7 +26,7 @@ options{
 	language=Python3;
 }
 
-program  : mctype STRINGLIT EOF ;
+program  : mctype STRINGLIT UNCLOSE_STRING EOF ;
 
 mctype: INTTYPE | VOIDTYPE | FLOATTYPE |STRINGTYPE | BOOLTYPE;
 
@@ -117,5 +117,5 @@ STRINGLIT   :'"' ('\\' [bfrnt"\\] |~[\b\f\r\n\t"\\])* '"';
 
 
 ERROR_CHAR: .;
-UNCLOSE_STRING: .;
+UNCLOSE_STRING: '"' ('\\' [bfrnt"\\] |~[\b\f\r\n\t"\\])* ;
 ILLEGAL_ESCAPE: .;

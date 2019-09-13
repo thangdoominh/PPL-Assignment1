@@ -1,0 +1,4 @@
+    string	STRINGTYPE
+     "abc"	STRINGLIT
+      "xyz	UNCLOSE_STRING
+<EOF>
