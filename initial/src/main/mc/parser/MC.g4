@@ -1,5 +1,6 @@
 //  Do Minh Thang
 //  1713217
+
 grammar MC;
 
 @lexer::header {
@@ -26,13 +27,19 @@ options{
 	language=Python3;
 }
 
-program  : mctype STRINGLIT UNCLOSE_STRING EOF ;
+program  : mctype STRINGLIT EOF ;
 
-mctype: INTTYPE | VOIDTYPE | FLOATTYPE |STRINGTYPE | BOOLTYPE;
+mctype  : INTTYPE
+		| VOIDTYPE
+		| FLOATTYPE
+		| STRINGTYPE
+		| BOOLTYPE
+		;
 
-body: funcall SEMI;
+body    : funcall SEMI;
 
-exp: funcall | INTLIT ;
+exp     : funcall
+		| INTLIT ;
 
 funcall: ID LB exp? RB ;
 
@@ -93,9 +100,9 @@ LSB     : '[';
 RSB     : ']';
 LP      : '{';
 RP      : '}';
-LB      : '(' ;
-RB      : ')' ;
-SEMI    : ';' ;
+LB      : '(';
+RB      : ')';
+SEMI    : ';';
 COMMA   : ',';
 
 // 3.5 Literals
@@ -113,9 +120,9 @@ EXPONENT    : (FRAC|INTLIT)[eE][+-]?INTLIT ;
 
 BOOLLIT     : TRUE|FALSE;
 
-STRINGLIT   :'"' ('\\' [bfrnt"\\] |~[\b\f\r\n\t"\\])* '"';
-
+STRINGLIT   :'"' ('\\' [bfrnt"\\] | ~[\b\f\r\n\t"\\])* '"';
 
 ERROR_CHAR: .;
+// tai sao nhay doi " lai khong can xet \ o truoc
 UNCLOSE_STRING: '"' ('\\' [bfrnt"\\] |~[\b\f\r\n\t"\\])* ;
 ILLEGAL_ESCAPE: .;

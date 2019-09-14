@@ -1,0 +1,3 @@
+       123	INTLIT
+ "ab    c"	STRINGLIT
+<EOF>

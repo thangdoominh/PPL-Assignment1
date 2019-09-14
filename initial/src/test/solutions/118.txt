@@ -1,0 +1,4 @@
+     "chan	UNCLOSE_STRING
+       qua	ID
+        " 	UNCLOSE_STRING
+<EOF>

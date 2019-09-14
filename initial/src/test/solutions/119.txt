@@ -1,0 +1,5 @@
+     "123a	UNCLOSE_STRING
+         \	ERROR_CHAR
+     mn123	ID
+        " 	UNCLOSE_STRING
+<EOF>

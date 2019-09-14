@@ -1,0 +1,3 @@
+"x y     z \b"	STRINGLIT
+       123	INTLIT
+<EOF>
