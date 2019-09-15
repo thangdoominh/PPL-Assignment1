@@ -1,4 +1,2 @@
     string	STRINGTYPE
-     "abc"	STRINGLIT
-      "xyz	UNCLOSE_STRING
-<EOF>
+Illegal Escape In String: abc" "xyz

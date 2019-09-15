@@ -120,9 +120,18 @@ EXPONENT    : (FRAC|INTLIT)[eE][+-]?INTLIT ;
 
 BOOLLIT     : TRUE|FALSE;
 
-STRINGLIT   :'"' ('\\' [bfrnt"\\] | ~[\b\f\r\n\t"\\])* '"';
+STRINGLIT   :'"' ('\\' [bfrnt"'\\] | ~[\b\f\r\n\t"\\])* '"'{self.text = self.text[1:-1]};
 
-ERROR_CHAR: .;
+ERROR_CHAR  :.{
+				raise ErrorToken(self.text)
+			};
+
 // tai sao nhay doi " lai khong can xet \ o truoc
-UNCLOSE_STRING: '"' ('\\' [bfrnt"\\] |~[\b\f\r\n\t"\\])* ;
-ILLEGAL_ESCAPE: .;
+UNCLOSE_STRING  : '"' ('\\' [bfrnt"\\] | ~[\b\f\r\n\t"\\])*{
+					raise UncloseString(self.text[1:])
+				};
+
+ILLEGAL_ESCAPE  : '"' ('\\' ~[btnfr"\\] | ~'\\')*
+				{
+					raise IllegalEscape(self.text[1:])
+				};

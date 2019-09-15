@@ -1,6 +1,2 @@
-       "do	UNCLOSE_STRING
-         	ERROR_CHAR
-      minh	ID
-     thang	ID
-        " 	UNCLOSE_STRING
+do\b minh   thang	STRINGLIT
 <EOF>

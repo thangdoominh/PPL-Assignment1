@@ -1,4 +1,2 @@
-     "chan	UNCLOSE_STRING
-       qua	ID
-        " 	UNCLOSE_STRING
+chan\n qua 	STRINGLIT
 <EOF>

@@ -33,9 +33,9 @@ class LexerSuite(unittest.TestCase):
     def test_stringlit_4 (self):
 	    self.assertTrue(TestLexer.checkLexeme(''' "Thang" / Thang''', ''' Thang, /, Thang, <EOF>''', 113))
     def test_stringlit_5(self):
-        self.assertTrue(TestLexer.checkLexeme(''' "do\b minh   thang" ''','''do\b minh   thang, <EOF>''',114))
+        self.assertTrue(TestLexer.checkLexeme(''' "do\\b minh   thang" ''','''do\\b minh   thang, <EOF>''',114))
     def test_stringlit_6(self):
-        self.assertTrue(TestLexer.checkLexeme(""" "abc\\abc" """, """abc\\abc, <EOF> """,115))
+        self.assertTrue(TestLexer.checkLexeme(""" "abc\\nabc" """, """abc\\nabc, <EOF> """,115))
     def test_stringlit_7(self):
         self.assertTrue(TestLexer.checkLexeme(""" "123a\\n123" ""","""123a\\n123,<EOF>""", 116))
     def test_stringlit_8(self):
@@ -52,5 +52,56 @@ class LexerSuite(unittest.TestCase):
         self.assertTrue(TestLexer.checkLexeme(input, expect,120))
 
     # 121 -> 130
-    def test_unclosestring(self):
+    def test_uncloses_tring_121(self):
         self.assertTrue(TestLexer.checkLexeme('''string "abc" "xyz''', '''string, abc, "xyz, "EOF"''',121))
+    def test_unclose_string_122(self):
+        """test integers"""
+        self.assertTrue(TestLexer.checkLexeme(""" "doanh\\n1243 """, """Unclosed String: doanh\\n1243 """, 122))
+
+    #131 -> 140
+    def test_illegal_escape_131(self):
+        input = """ thang "123a\\m123" """
+        expect = """thang,Illegal Escape In String: 123a\\m"""
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 131))
+
+    # 141 -> 150
+    def test_wrong_token_141(self):
+        input = """ thang?dominh """
+        expect = "thang,Error Token ?"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 141))
+    def test_wrong_token_142(self):
+        input = """ dominh#thang """
+        expect = "dominh,Error Token #"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 142))
+    def test_wrong_token_143(self):
+        input = """ do~thang """
+        expect = "do,Error Token ~"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 143))
+    def test_wrong_token_144(self):
+        input = """ bku&123 """
+        expect = "bku,Error Token &"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 144))
+    def test_wrong_token_145(self):
+        input = """ $dominhthang """
+        expect = "Error Token $"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 145))
+    def test_wrong_token_146(self):
+        input = """ cuong $ 123 """
+        expect = "cuong,Error Token $"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 146))
+    def test_wrong_token_147(self):
+        input = """ minhthang`1999 """
+        expect = "dominhthang,Error Token `"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 147))
+    def test_wrong_token_148(self):
+        input = """ xyz?123"1999 """
+        expect = "xyz,Error Token ?"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 148))
+    def test_wrong_token_149(self):
+        input = """ dominhthang@1999 """
+        expect = "dominhthang,Error Token @"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 149))
+    def test_wrong_token_150(self):
+        input = """ qwe'123 """
+        expect = "qwe,Error Token '"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 150))

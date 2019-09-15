@@ -1,2 +1,1 @@
- "chan
- qua " 
+ "chan\n qua " 

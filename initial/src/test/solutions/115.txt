@@ -1,5 +1,2 @@
-      "abc	UNCLOSE_STRING
-         \	ERROR_CHAR
-       abc	ID
-        " 	UNCLOSE_STRING
+  abc\nabc	STRINGLIT
 <EOF>
