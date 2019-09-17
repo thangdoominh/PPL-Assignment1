@@ -1,5 +1,8 @@
-//  Do Minh Thang
-//  1713217
+/**
+*   Student's Name    : Do Minh Thang
+*
+*   Student's ID      : 1713217
+**/
 
 grammar MC;
 
@@ -12,10 +15,10 @@ def emit(self):
 	tk = self.type
 	if tk == UNCLOSE_STRING:
 		result = super.emit();
-		raise UncloseString(result.text);
+		raise UncloseString(result.text[1:]);
 	elif tk == ILLEGAL_ESCAPE:
 		result = super.emit();
-		raise IllegalEscape(result.text);
+		raise IllegalEscape(result.text[1:]);
 	elif tk == ERROR_CHAR:
 		result = super.emit();
 		raise ErrorToken(result.text);
@@ -27,7 +30,9 @@ options{
 	language=Python3;
 }
 
-program  : mctype STRINGLIT EOF ;
+program : declarations+ EOF ;
+
+declarations: .;
 
 mctype  : INTTYPE
 		| VOIDTYPE
@@ -46,8 +51,6 @@ funcall: ID LB exp? RB ;
 arrayid             : ID LSB INTLIT RSB;
 
 arraypointertype    : mctype LSB RSB ;
-
-
 
 // Type value
 INTTYPE     : 'int';
@@ -120,18 +123,20 @@ EXPONENT    : (FRAC|INTLIT)[eE][+-]?INTLIT ;
 
 BOOLLIT     : TRUE|FALSE;
 
-STRINGLIT   :'"' ('\\' [bfrnt"'\\] | ~[\b\f\r\n\t"\\])* '"'{self.text = self.text[1:-1]};
+STRINGLIT   :'"' ('\\' [bfrnt"\\] | ~[\b\f\r\n\t"\\])* '"'{self.text = self.text[1:-1]};
 
 ERROR_CHAR  :.{
 				raise ErrorToken(self.text)
 			};
 
 // tai sao nhay doi " lai khong can xet \ o truoc
-UNCLOSE_STRING  : '"' ('\\' [bfrnt"\\] | ~[\b\f\r\n\t"\\])*{
+UNCLOSE_STRING  : '"' ('\\' [bfrnt"\\] | ~[\b\f\r\n\t"\\])*
+				{
 					raise UncloseString(self.text[1:])
 				};
 
-ILLEGAL_ESCAPE  : '"' ('\\' ~[btnfr"\\] | ~'\\')*
+//'"' ('\\' ~[btnfr"\\] | ~'\\')*
+ILLEGAL_ESCAPE  : '"' .*? ('\\' ~[bfrnt"\\] |[\b\f\r\n\t"\\])
 				{
 					raise IllegalEscape(self.text[1:])
 				};

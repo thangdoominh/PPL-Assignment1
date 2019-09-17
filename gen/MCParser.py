@@ -9,19 +9,19 @@ import sys
 def serializedATN():
     with StringIO() as buf:
         buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\64")
-        buf.write(".\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
-        buf.write("\t\b\3\2\3\2\3\2\3\2\3\3\3\3\3\4\3\4\3\4\3\5\3\5\5\5\34")
-        buf.write("\n\5\3\6\3\6\3\6\5\6!\n\6\3\6\3\6\3\7\3\7\3\7\3\7\3\7")
-        buf.write("\3\b\3\b\3\b\3\b\3\b\2\2\t\2\4\6\b\n\f\16\2\3\3\2\3\7")
-        buf.write("\2(\2\20\3\2\2\2\4\24\3\2\2\2\6\26\3\2\2\2\b\33\3\2\2")
-        buf.write("\2\n\35\3\2\2\2\f$\3\2\2\2\16)\3\2\2\2\20\21\5\4\3\2\21")
-        buf.write("\22\7\61\2\2\22\23\7\2\2\3\23\3\3\2\2\2\24\25\t\2\2\2")
-        buf.write("\25\5\3\2\2\2\26\27\5\n\6\2\27\30\7*\2\2\30\7\3\2\2\2")
-        buf.write("\31\34\5\n\6\2\32\34\7,\2\2\33\31\3\2\2\2\33\32\3\2\2")
-        buf.write("\2\34\t\3\2\2\2\35\36\7\13\2\2\36 \7(\2\2\37!\5\b\5\2")
-        buf.write(" \37\3\2\2\2 !\3\2\2\2!\"\3\2\2\2\"#\7)\2\2#\13\3\2\2")
-        buf.write("\2$%\7\13\2\2%&\7$\2\2&\'\7,\2\2\'(\7%\2\2(\r\3\2\2\2")
-        buf.write(")*\5\4\3\2*+\7$\2\2+,\7%\2\2,\17\3\2\2\2\4\33 ")
+        buf.write("-\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
+        buf.write("\t\b\3\2\3\2\3\2\3\3\3\3\3\4\3\4\3\4\3\5\3\5\5\5\33\n")
+        buf.write("\5\3\6\3\6\3\6\5\6 \n\6\3\6\3\6\3\7\3\7\3\7\3\7\3\7\3")
+        buf.write("\b\3\b\3\b\3\b\3\b\2\2\t\2\4\6\b\n\f\16\2\3\3\2\3\7\2")
+        buf.write("\'\2\20\3\2\2\2\4\23\3\2\2\2\6\25\3\2\2\2\b\32\3\2\2\2")
+        buf.write("\n\34\3\2\2\2\f#\3\2\2\2\16(\3\2\2\2\20\21\7\64\2\2\21")
+        buf.write("\22\7\2\2\3\22\3\3\2\2\2\23\24\t\2\2\2\24\5\3\2\2\2\25")
+        buf.write("\26\5\n\6\2\26\27\7*\2\2\27\7\3\2\2\2\30\33\5\n\6\2\31")
+        buf.write("\33\7,\2\2\32\30\3\2\2\2\32\31\3\2\2\2\33\t\3\2\2\2\34")
+        buf.write("\35\7\13\2\2\35\37\7(\2\2\36 \5\b\5\2\37\36\3\2\2\2\37")
+        buf.write(" \3\2\2\2 !\3\2\2\2!\"\7)\2\2\"\13\3\2\2\2#$\7\13\2\2")
+        buf.write("$%\7$\2\2%&\7,\2\2&\'\7%\2\2\'\r\3\2\2\2()\5\4\3\2)*\7")
+        buf.write("$\2\2*+\7%\2\2+\17\3\2\2\2\4\32\37")
         return buf.getvalue()
 
 
@@ -132,12 +132,8 @@ class MCParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def mctype(self):
-            return self.getTypedRuleContext(MCParser.MctypeContext,0)
-
-
-        def STRINGLIT(self):
-            return self.getToken(MCParser.STRINGLIT, 0)
+        def ILLEGAL_ESCAPE(self):
+            return self.getToken(MCParser.ILLEGAL_ESCAPE, 0)
 
         def EOF(self):
             return self.getToken(MCParser.EOF, 0)
@@ -169,10 +165,8 @@ class MCParser ( Parser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 14
-            self.mctype()
+            self.match(MCParser.ILLEGAL_ESCAPE)
             self.state = 15
-            self.match(MCParser.STRINGLIT)
-            self.state = 16
             self.match(MCParser.EOF)
         except RecognitionException as re:
             localctx.exception = re
@@ -231,7 +225,7 @@ class MCParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 18
+            self.state = 17
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << MCParser.INTTYPE) | (1 << MCParser.BOOLTYPE) | (1 << MCParser.STRINGTYPE) | (1 << MCParser.FLOATTYPE) | (1 << MCParser.VOIDTYPE))) != 0)):
                 self._errHandler.recoverInline(self)
@@ -286,9 +280,9 @@ class MCParser ( Parser ):
         self.enterRule(localctx, 4, self.RULE_body)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 20
+            self.state = 19
             self.funcall()
-            self.state = 21
+            self.state = 20
             self.match(MCParser.SEMI)
         except RecognitionException as re:
             localctx.exception = re
@@ -337,17 +331,17 @@ class MCParser ( Parser ):
         localctx = MCParser.ExpContext(self, self._ctx, self.state)
         self.enterRule(localctx, 6, self.RULE_exp)
         try:
-            self.state = 25
+            self.state = 24
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [MCParser.ID]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 23
+                self.state = 22
                 self.funcall()
                 pass
             elif token in [MCParser.INTLIT]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 24
+                self.state = 23
                 self.match(MCParser.INTLIT)
                 pass
             else:
@@ -408,19 +402,19 @@ class MCParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 27
+            self.state = 26
             self.match(MCParser.ID)
-            self.state = 28
+            self.state = 27
             self.match(MCParser.LB)
-            self.state = 30
+            self.state = 29
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==MCParser.ID or _la==MCParser.INTLIT:
-                self.state = 29
+                self.state = 28
                 self.exp()
 
 
-            self.state = 32
+            self.state = 31
             self.match(MCParser.RB)
         except RecognitionException as re:
             localctx.exception = re
@@ -475,13 +469,13 @@ class MCParser ( Parser ):
         self.enterRule(localctx, 10, self.RULE_arrayid)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 34
+            self.state = 33
             self.match(MCParser.ID)
-            self.state = 35
+            self.state = 34
             self.match(MCParser.LSB)
-            self.state = 36
+            self.state = 35
             self.match(MCParser.INTLIT)
-            self.state = 37
+            self.state = 36
             self.match(MCParser.RSB)
         except RecognitionException as re:
             localctx.exception = re
@@ -534,11 +528,11 @@ class MCParser ( Parser ):
         self.enterRule(localctx, 12, self.RULE_arraypointertype)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 39
+            self.state = 38
             self.mctype()
-            self.state = 40
+            self.state = 39
             self.match(MCParser.LSB)
-            self.state = 41
+            self.state = 40
             self.match(MCParser.RSB)
         except RecognitionException as re:
             localctx.exception = re

@@ -1,2 +1,3 @@
     string	STRINGTYPE
-Illegal Escape In String: abc" "xyz
+       abc	STRINGLIT
+Unclosed String: xyz

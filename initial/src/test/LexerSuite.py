@@ -17,9 +17,9 @@ class LexerSuite(unittest.TestCase):
     def test_comment_line_1 (self):
         self.assertTrue(TestLexer.checkLexeme("int a; // abcxyz", "int,a,;,<EOF>",105))
     def test_comment_line_2 (self):
-        self.assertTrue(TestLexer.checkLexeme("/* ab // cb \n */", "<EOF>",106))
+        self.assertTrue(TestLexer.checkLexeme("/* ab // cb \\n */", "<EOF>",106))
     def test_comment_line_3 (self):
-        self.assertTrue(TestLexer.checkLexeme('''"abc" /* abc /* // cb \n */''', '''<EOF>''', 107))
+        self.assertTrue(TestLexer.checkLexeme(''' "abc" /* abc /* // cb \\n */ ''', ''' abc,<EOF>''', 107))
     # def test_comment_line_4 (self):
         # self.assertTrue(TestLexer.checkLexeme(,108))
 
@@ -53,7 +53,7 @@ class LexerSuite(unittest.TestCase):
 
     # 121 -> 130
     def test_uncloses_tring_121(self):
-        self.assertTrue(TestLexer.checkLexeme('''string "abc" "xyz''', '''string, abc, "xyz, "EOF"''',121))
+        self.assertTrue(TestLexer.checkLexeme('''string "abc" "xyz''', '''STRINGTYPE, abc, Unclosed String: xyz''',121))
     def test_unclose_string_122(self):
         """test integers"""
         self.assertTrue(TestLexer.checkLexeme(""" "doanh\\n1243 """, """Unclosed String: doanh\\n1243 """, 122))
@@ -63,6 +63,10 @@ class LexerSuite(unittest.TestCase):
         input = """ thang "123a\\m123" """
         expect = """thang,Illegal Escape In String: 123a\\m"""
         self.assertTrue(TestLexer.checkLexeme(input, expect, 131))
+    def test_illegal_escape_132(self):
+        input = """ chan "thiet\\chu" """
+        expect = """ chan,Illegal Escape In String: thiet\\chu"""
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 132))
 
     # 141 -> 150
     def test_wrong_token_141(self):

@@ -14,6 +14,11 @@ class MCVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by MCParser#declarations.
+    def visitDeclarations(self, ctx:MCParser.DeclarationsContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by MCParser#mctype.
     def visitMctype(self, ctx:MCParser.MctypeContext):
         return self.visitChildren(ctx)

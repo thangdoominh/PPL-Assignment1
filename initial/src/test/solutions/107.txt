@@ -1,2 +1,2 @@
-Illegal Escape In String: abc" /* abc /* // cb 
- */
+       abc	STRINGLIT
+<EOF>
