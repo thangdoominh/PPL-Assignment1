@@ -8,9 +8,9 @@ class LexerSuite(unittest.TestCase):
         self.assertTrue(TestLexer.checkLexeme("abc","abc,<EOF>",101))
         # self.assertTrue(TestLexer.checkLexeme("aCBbdc","aCBbdc,<EOF>",102))
         # self.assertTrue(TestLexer.checkLexeme("aAsVN","aAsVN,<EOF>",103))
-    # def test_integer_1(self):
+    def test_integer_1(self):
     #     """test integers"""
-        # self.assertTrue(TestLexer.checkLexeme('''int main(){FLOAT a; "abc" = 1.0;}''','''abc,<EOF>''',104))
+        self.assertTrue(TestLexer.checkLexeme('''123a123''','''123,a,123,<EOF>''',104))
 
 
     # 105 -> 110

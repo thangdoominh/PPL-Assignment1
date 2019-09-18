@@ -1,14 +1,3 @@
-       int	INTTYPE
-      main	ID
-         (	LB
-         )	RB
-         {	LP
-     FLOAT	ID
-         a	ID
-         ;	SEMI
-     "abc"	STRINGLIT
-         =	ASSIGN_OP
-       1.0	FLOATLIT
-         ;	SEMI
-         }	RP
+       123	INTLIT
+      a123	ID
 <EOF>

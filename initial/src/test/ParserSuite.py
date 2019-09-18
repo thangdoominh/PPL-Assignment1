@@ -21,3 +21,9 @@ class ParserSuite(unittest.TestCase):
         input = """int main( {}"""
         expect = "Error on line 1 col 10: {"
         self.assertTrue(TestParser.checkParser(input,expect,203))
+
+    # test define variable
+    def test_variable(self):
+        input = """ int a,b,c,d; """
+        expect = "successful"
+        self.assertTrue(TestParser.checkParser(input, expect, 204))

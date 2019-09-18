@@ -14,28 +14,48 @@ class MCVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MCParser#mctype.
-    def visitMctype(self, ctx:MCParser.MctypeContext):
+    # Visit a parse tree produced by MCParser#declaration.
+    def visitDeclaration(self, ctx:MCParser.DeclarationContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MCParser#body.
-    def visitBody(self, ctx:MCParser.BodyContext):
+    # Visit a parse tree produced by MCParser#vardeclaration.
+    def visitVardeclaration(self, ctx:MCParser.VardeclarationContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MCParser#exp.
-    def visitExp(self, ctx:MCParser.ExpContext):
+    # Visit a parse tree produced by MCParser#singletype.
+    def visitSingletype(self, ctx:MCParser.SingletypeContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MCParser#funcall.
-    def visitFuncall(self, ctx:MCParser.FuncallContext):
+    # Visit a parse tree produced by MCParser#idlist.
+    def visitIdlist(self, ctx:MCParser.IdlistContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MCParser#arrayid.
-    def visitArrayid(self, ctx:MCParser.ArrayidContext):
+    # Visit a parse tree produced by MCParser#idtail.
+    def visitIdtail(self, ctx:MCParser.IdtailContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MCParser#idarray.
+    def visitIdarray(self, ctx:MCParser.IdarrayContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MCParser#idsingle.
+    def visitIdsingle(self, ctx:MCParser.IdsingleContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MCParser#funcdeclaration.
+    def visitFuncdeclaration(self, ctx:MCParser.FuncdeclarationContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MCParser#block.
+    def visitBlock(self, ctx:MCParser.BlockContext):
         return self.visitChildren(ctx)
 
 

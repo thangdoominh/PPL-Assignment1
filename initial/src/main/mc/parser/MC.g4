@@ -30,27 +30,46 @@ options{
 	language=Python3;
 }
 
-program : declarations+ EOF ;
-
-declarations: .;
-
-mctype  : INTTYPE
-		| VOIDTYPE
-		| FLOATTYPE
-		| STRINGTYPE
-		| BOOLTYPE
+program : declaration+ EOF
 		;
 
-body    : funcall SEMI;
+declaration
+		: vardeclaration
+		| funcdeclaration
+		;
+// vardeclaration
+vardeclaration
+		: singletype idlist SEMI
+        ;
+singletype
+		: INTTYPE
+		| FLOATTYPE
+		| BOOLTYPE
+		| STRINGTYPE
+		;
+idlist
+		: idtail (COMMA idtail)*
+		;
+idtail
+		: idarray
+		| idsingle
+		;
+idarray
+		: ID LSB INTLIT RSB
+		;
+idsingle
+		: ID
+		;
 
-exp     : funcall
-		| INTLIT ;
-
-funcall: ID LB exp? RB ;
-
-arrayid             : ID LSB INTLIT RSB;
-
-arraypointertype    : mctype LSB RSB ;
+// funcdeclaration
+funcdeclaration
+		: (singletype | VOIDTYPE | arraypointertype) ID LB (singletype idtail (COMMA singletype idtail)*)? RB LP block RP
+		;
+block
+		:
+		;
+arraypointertype
+		: (singletype | VOIDTYPE)  LSB RSB ;
 
 // Type value
 INTTYPE     : 'int';
@@ -60,12 +79,11 @@ FLOATTYPE   : 'float';
 VOIDTYPE    : 'void';
 
 
-WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
 
 // 3.2 Comments
 COMMENTS_LINE   : '//' ~[\n\r\t\f]* -> skip;
 COMMENTS_BLOCK  : '/*' .*? '*/' -> skip;
-
+WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
 // 3.3 Token Set
 // a. Identifiers
 ID          : [_a-zA-Z][_a-zA-Z0-9]*;
@@ -121,22 +139,25 @@ FRAC        : [+-]INTLIT?'.'INTLIT
 
 EXPONENT    : (FRAC|INTLIT)[eE][+-]?INTLIT ;
 
-BOOLLIT     : TRUE|FALSE;
+BOOLLIT     : TRUE
+			| FALSE
+			;
 
 STRINGLIT   :'"' ('\\' [bfrnt"\\] | ~[\b\f\r\n\t"\\])* '"'{self.text = self.text[1:-1]};
 
 ERROR_CHAR  :.{
 				raise ErrorToken(self.text)
-			};
+			}
+			;
 
+ILLEGAL_ESCAPE  : '"' .*? ('\\' ~[bfrnt"\\] |[\b\f\r\n\t"\\])
+				{
+					raise IllegalEscape(self.text[1:])
+				}
+				;
 // tai sao nhay doi " lai khong can xet \ o truoc
 UNCLOSE_STRING  : '"' ('\\' [bfrnt"\\] | ~[\b\f\r\n\t"\\])*
 				{
 					raise UncloseString(self.text[1:])
-				};
-
-//'"' ('\\' ~[btnfr"\\] | ~'\\')*
-ILLEGAL_ESCAPE  : '"' .*? ('\\' ~[bfrnt"\\] |[\b\f\r\n\t"\\])
-				{
-					raise IllegalEscape(self.text[1:])
-				};
+				}
+				;

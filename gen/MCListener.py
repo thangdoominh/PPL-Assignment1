@@ -17,48 +17,84 @@ class MCListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MCParser#mctype.
-    def enterMctype(self, ctx:MCParser.MctypeContext):
+    # Enter a parse tree produced by MCParser#declaration.
+    def enterDeclaration(self, ctx:MCParser.DeclarationContext):
         pass
 
-    # Exit a parse tree produced by MCParser#mctype.
-    def exitMctype(self, ctx:MCParser.MctypeContext):
-        pass
-
-
-    # Enter a parse tree produced by MCParser#body.
-    def enterBody(self, ctx:MCParser.BodyContext):
-        pass
-
-    # Exit a parse tree produced by MCParser#body.
-    def exitBody(self, ctx:MCParser.BodyContext):
+    # Exit a parse tree produced by MCParser#declaration.
+    def exitDeclaration(self, ctx:MCParser.DeclarationContext):
         pass
 
 
-    # Enter a parse tree produced by MCParser#exp.
-    def enterExp(self, ctx:MCParser.ExpContext):
+    # Enter a parse tree produced by MCParser#vardeclaration.
+    def enterVardeclaration(self, ctx:MCParser.VardeclarationContext):
         pass
 
-    # Exit a parse tree produced by MCParser#exp.
-    def exitExp(self, ctx:MCParser.ExpContext):
-        pass
-
-
-    # Enter a parse tree produced by MCParser#funcall.
-    def enterFuncall(self, ctx:MCParser.FuncallContext):
-        pass
-
-    # Exit a parse tree produced by MCParser#funcall.
-    def exitFuncall(self, ctx:MCParser.FuncallContext):
+    # Exit a parse tree produced by MCParser#vardeclaration.
+    def exitVardeclaration(self, ctx:MCParser.VardeclarationContext):
         pass
 
 
-    # Enter a parse tree produced by MCParser#arrayid.
-    def enterArrayid(self, ctx:MCParser.ArrayidContext):
+    # Enter a parse tree produced by MCParser#singletype.
+    def enterSingletype(self, ctx:MCParser.SingletypeContext):
         pass
 
-    # Exit a parse tree produced by MCParser#arrayid.
-    def exitArrayid(self, ctx:MCParser.ArrayidContext):
+    # Exit a parse tree produced by MCParser#singletype.
+    def exitSingletype(self, ctx:MCParser.SingletypeContext):
+        pass
+
+
+    # Enter a parse tree produced by MCParser#idlist.
+    def enterIdlist(self, ctx:MCParser.IdlistContext):
+        pass
+
+    # Exit a parse tree produced by MCParser#idlist.
+    def exitIdlist(self, ctx:MCParser.IdlistContext):
+        pass
+
+
+    # Enter a parse tree produced by MCParser#idtail.
+    def enterIdtail(self, ctx:MCParser.IdtailContext):
+        pass
+
+    # Exit a parse tree produced by MCParser#idtail.
+    def exitIdtail(self, ctx:MCParser.IdtailContext):
+        pass
+
+
+    # Enter a parse tree produced by MCParser#idarray.
+    def enterIdarray(self, ctx:MCParser.IdarrayContext):
+        pass
+
+    # Exit a parse tree produced by MCParser#idarray.
+    def exitIdarray(self, ctx:MCParser.IdarrayContext):
+        pass
+
+
+    # Enter a parse tree produced by MCParser#idsingle.
+    def enterIdsingle(self, ctx:MCParser.IdsingleContext):
+        pass
+
+    # Exit a parse tree produced by MCParser#idsingle.
+    def exitIdsingle(self, ctx:MCParser.IdsingleContext):
+        pass
+
+
+    # Enter a parse tree produced by MCParser#funcdeclaration.
+    def enterFuncdeclaration(self, ctx:MCParser.FuncdeclarationContext):
+        pass
+
+    # Exit a parse tree produced by MCParser#funcdeclaration.
+    def exitFuncdeclaration(self, ctx:MCParser.FuncdeclarationContext):
+        pass
+
+
+    # Enter a parse tree produced by MCParser#block.
+    def enterBlock(self, ctx:MCParser.BlockContext):
+        pass
+
+    # Exit a parse tree produced by MCParser#block.
+    def exitBlock(self, ctx:MCParser.BlockContext):
         pass
 
 
