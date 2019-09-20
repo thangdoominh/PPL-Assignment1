@@ -222,7 +222,7 @@ FLOATLIT    : FRAC
 			| EXPONENT
 			;
 
-FRAC        : [+-]INTLIT?'.'INTLIT
+FRAC        : INTLIT?'.'INTLIT
 			| INTLIT'.'INTLIT?
 			;
 

@@ -6,7 +6,6 @@ class LexerSuite(unittest.TestCase):
     def test_identifier(self):
         """test identifiers"""
         self.assertTrue(TestLexer.checkLexeme("abc","abc,<EOF>",101))
-        # self.assertTrue(TestLexer.checkLexeme("aAsVN","aAsVN,<EOF>",103))
     def test_identifier_102(self):
         input = """aCBbdc"""
         expect = "aCBbdc,<EOF>"
@@ -255,23 +254,143 @@ class LexerSuite(unittest.TestCase):
         self.assertTrue(TestLexer.checkLexeme(input, expect, 166))
     def test_bracket_167(self):
         input = """ <Pl[}:<M """
-        expect = "<,EOF,>,<EOF>"
+        expect = "<,Pl,[,},Error Token :"
         self.assertTrue(TestLexer.checkLexeme(input, expect, 167))
     def test_bracket_168(self):
-        input = """ <EOF> """
-        expect = "<,EOF,>,<EOF>"
+        input = """ [\n[\n[\t[/[//[[]]]]]] """
+        expect = "[,[,[,[,/,[,<EOF>"
         self.assertTrue(TestLexer.checkLexeme(input, expect, 168))
     def test_bracket_169(self):
-        input = """ <EOF> """
-        expect = "<,EOF,>,<EOF>"
+        input = """ <<<{123{-zaz13{[] """
+        expect = "<,<,<,{,123,{,-,zaz13,{,[,],<EOF>"
         self.assertTrue(TestLexer.checkLexeme(input, expect, 169))
     def test_bracket_170(self):
-        input = """ <EOF> """
-        expect = "<,EOF,>,<EOF>"
+        input = """ foo(\t)[thang] /* {[]}() */ """
+        expect = "foo,(,),[,thang,],<EOF>"
         self.assertTrue(TestLexer.checkLexeme(input, expect, 170))
 
+#------------- TEST FLOATING POINTS ------------------------------
+    def test_floating_points_171(self):
+        input = """ 1.2 1. 1.e2 1.2E-2 """
+        expect = "1.2,1.,1.e2,1.2E-2,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 171))
+    def test_floating_points_172(self):
+        input = """ "\**\" """
+        expect = "Illegal Escape In String: \*"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 172))
+    def test_floating_points_173(self):
+        input = """ 1.3e-2 9.0 12e8 0.33E-3 128e-42 """
+        expect = "1.3e-2,9.0,12e8,0.33E-3,128e-42,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 173))
+    def test_floating_points_174(self):
+        input = """ .1 """
+        expect = ".1,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 174))
+    def test_floating_points_175(self):
+        input = """ thang .1E2 """
+        expect = "thang,.1E2,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 175))
+    def test_floating_points_176(self):
+        input = """ 00.00e2 """
+        expect = "00.00e2,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 176))
+    def test_floating_points_177(self):
+        input = """ if error is fall .e2"""
+        expect = "if,error,is,fall,Error Token ."
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 177))
+    def test_floating_points_178(self):
+        input = """ 1.e2 """
+        expect = "1.e2,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 178))
+    def test_floating_points_179(self):
+        input = """ e-12 """
+        expect = "e,-,12,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 179))
+    def test_floating_points_180(self):
+        input = """ 143e """
+        expect = "143,e,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 180))
 
-    def test_comment_line_152(self):
+#-------------------- overall -------------------
+    def test_overall_181(self):
+        input = """ line1 \\n line2 \n line3 """
+        expect = "line1,Error Token \\"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 181))
+    def test_overall_182(self):
+        input = """ dong1 //dong2 \n dong3 """
+        expect = "dong1,dong3,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 182))
+    def test_overall_183(self):
+        input = """ Thang \r Phong \n Thuan"""
+        expect = "Thang,Phong,Thuan,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 183))
+    def test_overall_184(self):
+        input = """ So1 \r So2 // So3 \n So4 """
+        expect = "So1,So2,So4,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 184))
+    def test_overall_185(self):
+        input = """ SV1 // \r SV2 SV3 \n SV4  """
+        expect = "SV1,SV2,SV3,SV4,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 185))
+    def test_overall_186(self):
+        input = """ a \r b \r c \n d  """
+        expect = "a,b,c,d,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 186))
+    #?????? khoong chac
+    def test_overall_187(self):
+        input = """ Commentline // a \r b \t c \b d\f """
+        expect = "Commentline,b,c,Error Token "
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 187))
+    def test_overall_188(self):
+        input = """ test cmt // 1 \r\r 2\n\n3\t """
+        expect = "test,cmt,2,3,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 188))
+    def test_overall_189(self):
+        input = """ "honghieu \\" """
+        expect = 'Unclosed String: honghieu \\" '
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 189))
+    def test_overall_190(self):
+        input = """ "vanchuahieu \\ " """
+        expect = "Illegal Escape In String: vanchuahieu \\ "
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 190))
+    def test_overall_191(self):
+        input = """ 3dau\\ "test"  """
+        expect = "3,dau,Error Token \\"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 191))
+    def test_overall_192(self):
+        input = """ 3dau "test \\\"  """
+        expect = "3,dau,Unclosed String: test \\\"  "
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 192))
+    def test_overall_193(self):
+        input = """ 4dau "thu \\\\"  """
+        expect = "4,dau,thu \\\\,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 193))
+    def test_overall_194(self):
+        input = """ 4daucocach "thu \\\\a "  """
+        expect = "4,daucocach,thu \\\\a ,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 194))
+    def test_overall_195(self):
+        input = """ 5gach "a \\\\\" """
+        expect = "5,gach,a \\\\,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 195))
+    def test_overall_196(self):
+        input = """ 5gachspace "5 \\\\\a "  """
+        expect = "5,gachspace,5 \\\\ ,<EOF>"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 196))
+    def test_overall_197(self):
+        input = """ "string \\\\\c "  """
+        expect = "Unclosed String: string \\\\"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 197))
+    def test_overall_198(self):
+        input = """ 3dau "abc \\\est"  """
+        expect = "3,dau,Unclosed String: abc \\est"
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 198))
+
+    def test_wrong_token_199(self):
+        input = """ error dot . """
+        expect = "error,dot,Error Token ."
+        self.assertTrue(TestLexer.checkLexeme(input, expect, 199))
+    def test_comment_line_200(self):
         input = "Alo lan\t 1 //abc \ndong2\n dong3 \n"
         expect = "Alo,lan,1,dong2,dong3,<EOF>"
         self.assertTrue(TestLexer.checkLexeme(input, expect, 200))

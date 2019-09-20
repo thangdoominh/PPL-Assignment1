@@ -64,11 +64,6 @@ class MCVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MCParser#statementpart.
-    def visitStatementpart(self, ctx:MCParser.StatementpartContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by MCParser#statement.
     def visitStatement(self, ctx:MCParser.StatementContext):
         return self.visitChildren(ctx)

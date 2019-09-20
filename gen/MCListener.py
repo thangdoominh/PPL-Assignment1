@@ -107,15 +107,6 @@ class MCListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MCParser#statementpart.
-    def enterStatementpart(self, ctx:MCParser.StatementpartContext):
-        pass
-
-    # Exit a parse tree produced by MCParser#statementpart.
-    def exitStatementpart(self, ctx:MCParser.StatementpartContext):
-        pass
-
-
     # Enter a parse tree produced by MCParser#statement.
     def enterStatement(self, ctx:MCParser.StatementContext):
         pass
