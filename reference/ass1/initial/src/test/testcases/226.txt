@@ -1,0 +1,13 @@
+
+        procedure swap(x, y: integer); 
+        var
+            temp: integer;
+        beGin
+        var A:array[0-100 .. a-10] of REAL;
+        begin
+            temp := x;
+            x:= y;
+            y := temp;
+        end
+        end
+        

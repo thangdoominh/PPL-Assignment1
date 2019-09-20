@@ -1,0 +1,9 @@
+
+        var x:real ;
+            BEGIN
+                whILe(a<>1) do beGin
+                    if(a=1) then;
+                    foo();
+                end
+            END
+        

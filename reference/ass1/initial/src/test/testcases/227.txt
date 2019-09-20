@@ -1,0 +1,11 @@
+
+        Function CountFromX(A:array[0 .. 10] of integer; N,X : Integer) : Integer;
+                Var i , Count : Integer;
+                Begin
+                    Count := 0;
+                    For i:=0 to N do
+                    If ( A[i] = X ) then
+                    Count := Count + 1;
+                    return Count;
+                End
+        

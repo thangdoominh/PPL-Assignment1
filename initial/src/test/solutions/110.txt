@@ -1,3 +1,1 @@
-  x y z \b	STRINGLIT
-       123	INTLIT
-<EOF>
+x y z \b,123,<EOF>

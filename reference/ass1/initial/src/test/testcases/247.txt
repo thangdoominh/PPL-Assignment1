@@ -1,0 +1,8 @@
+
+        Function IsEmpty() : Boolean;
+        Begin
+            IsEmpty := False;
+            If (topPointer = 0) Then
+            IsEmpty := true;
+        End
+        

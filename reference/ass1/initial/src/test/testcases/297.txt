@@ -1,0 +1,13 @@
+
+        Procedure Reverse(n: integer);
+                Begin
+                    Assign(f,fo);
+                    Rewrite(f);
+                    If n > 0 then
+                    Begin
+                    Write(f,n mod 10);
+                    Daoso(n div 10);
+                    End
+                    Close(f);
+                End
+        

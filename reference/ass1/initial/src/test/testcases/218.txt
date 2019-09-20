@@ -1,0 +1,15 @@
+
+        Var r,dt,cv:real;
+        pROCEDURE main() ;
+        Begin
+            Clrscr();
+            Writeln("Circle:");
+            Writeln("--------------------------------------------------");
+            Write ("R="); readln(r);
+            dt:=pi*r*r;
+            cv:=2*pi*r;
+            Writeln("S= ",dt);
+            Writeln("P= ",cv);
+            Readln();
+        End
+        

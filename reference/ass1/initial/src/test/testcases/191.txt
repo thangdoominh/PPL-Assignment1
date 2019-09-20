@@ -1,0 +1,1 @@
+function fact(x: integer): integer; (* calculates factorial of x - x! *)

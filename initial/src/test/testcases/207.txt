@@ -1,0 +1,2 @@
+ int bk5];
+                    int thang;

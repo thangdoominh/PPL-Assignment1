@@ -1,0 +1,4 @@
+pROCEDURE foo(c: real);
+BEGIN
+ while (1) do reTuRn ;
+ END

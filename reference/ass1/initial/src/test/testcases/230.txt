@@ -1,0 +1,14 @@
+
+        function sum_real_array(a: array[0 .. m-1] of real;n:integer):real;
+                var i:integer;s:real;
+                beGin
+                    s:=0.;
+                    for i:=n-1 doWnTO 0 do s:=s+a[i];
+                    reTuRn s;
+                eND
+                procedure main() ;
+                var a: array[0 .. m-1] of real; n:integer;
+                beGin
+                    Writeln("Sum of real array: "+sum_real_array(a,n));
+                eND
+        

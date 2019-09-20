@@ -1,0 +1,12 @@
+
+        Var 
+	    S1, S2, S3 : String;
+
+        Procedure main();
+        Begin
+    	S1 := "Woaw!";
+	    S2 := " Viet ";
+        S3 := " is such a handsome man!";
+    	Write(S1 + S2 + S3); { "Woaw! Viet is such a handsome man!" }
+        End
+        

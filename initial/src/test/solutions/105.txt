@@ -1,4 +1,1 @@
-       int	INTTYPE
-         a	ID
-         ;	SEMI
-<EOF>
+int,a,;,<EOF>

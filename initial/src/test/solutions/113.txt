@@ -1,4 +1,1 @@
-     Thang	STRINGLIT
-         /	DIV_OP
-     Thang	ID
-<EOF>
+Thang,/,Thang,<EOF>

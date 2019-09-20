@@ -1,0 +1,9 @@
+
+        procedure test2() ;
+                begin
+	                if a=b then if c=d then while (d=e) do
+                    beGin
+                    eND
+                else c := 1;
+                end
+        

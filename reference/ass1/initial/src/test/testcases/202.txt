@@ -1,0 +1,12 @@
+
+        Function checkSymmetric (A:array[0 .. 10] of REAL; N:Integer ) : Boolean;
+                Var Flag:Boolean;
+                    i :Integer;
+                Begin
+                Flag:=True;
+                For  i :=1 to N do
+                If(A[i] <> A[N-i  +1]) Then
+                Flag :=False;       { Cham dut kiem tra, ket qua qua trinh : khong doi xung }
+                return flag;
+                End
+        

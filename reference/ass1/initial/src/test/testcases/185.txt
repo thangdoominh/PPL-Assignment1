@@ -1,0 +1,3 @@
+var
+{ local variable definition }
+a : integer;

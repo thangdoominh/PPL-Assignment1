@@ -1,0 +1,4 @@
+
+        VAR Hours, Pay: INTEGER;
+        PROCEDURE main();
+        

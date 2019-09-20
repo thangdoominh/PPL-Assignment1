@@ -1,0 +1,3 @@
+with c , d : integer ; c : array [1 .. 2] of real ; do
+with a , b : integer ; do
+foo2(a,b,"anc");

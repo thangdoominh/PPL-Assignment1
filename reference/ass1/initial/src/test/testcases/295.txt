@@ -1,0 +1,11 @@
+
+        Function checkArithmeticProgression(A:Mang20;  N:Integer; k:Integer):Boolean;
+                Var flag :boolean;
+                i :Integer;
+                Begin
+                    for i:=1 to N do
+                    if(A[i] <> A[i-1] + k) then
+                    flag:=false;     // Cham dut, ket qua: khong phai
+                    return flag; {Ket qua kiem tra la mang cap so cong}
+                End
+        

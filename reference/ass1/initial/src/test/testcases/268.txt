@@ -1,0 +1,8 @@
+
+        function foo(c: real): integer;
+            BEGIN
+                foo(3,a+1,a<>1,a[1]);
+                return 1;
+                -1--[];
+            END
+        

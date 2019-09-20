@@ -1,3 +1,1 @@
-    string	STRINGTYPE
-       abc	STRINGLIT
-Unclosed String: xyz
+string,abc,Unclosed String: xyz

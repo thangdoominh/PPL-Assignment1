@@ -1,0 +1,11 @@
+
+        Function Sum5DivisibleIn(A:array[0 .. 10] of integer ; N:Integer):Integer;
+                Var S,i :Integer;
+                Begin
+                	S:=0;
+                	For i:=0 to N do
+                	If(A[i] mod 5=0) then
+                	S := S+A[i];
+                	return S;
+                End
+        

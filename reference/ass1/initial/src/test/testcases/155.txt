@@ -1,0 +1,4 @@
+function foo(c: real): integer;
+BEGIN
+while (1=1) do begin eND
+END

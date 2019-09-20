@@ -1,0 +1,7 @@
+
+        function foo(c: real): integer;
+        BEGIN
+            foo(3,a+1,x and then y,a[1],foo(1,2)[m+1]);
+            return 1;
+        END
+        

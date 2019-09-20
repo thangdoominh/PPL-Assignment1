@@ -1,1 +1,1 @@
-"x y z \b" 123
+Alo lan 1	 Alo lan 2 

@@ -1,0 +1,14 @@
+
+        Var
+                Num1, Num2, Sum : Integer;
+            Procedure Sum(a, c:Real);
+            Begin {no semicolon}
+                Write("Input num 1:");
+                Readln(Num1);
+                Writeln("Input num 2:");
+                Readln(Num2);
+                Sum := Num1 + Num2;
+                Write(Sum);
+                Readln();
+            End
+        

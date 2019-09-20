@@ -1,2 +1,1 @@
-      chan	ID
-Illegal Escape In String: thiet\c
+chan,Illegal Escape In String: thiet\c

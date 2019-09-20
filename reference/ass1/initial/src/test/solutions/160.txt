@@ -1,0 +1,1 @@
+Function,KtraMangTang,(,A,:,array,[,0,..,10,],of,REAL,;,N,:,Integer,),:,Boolean,;,<EOF>

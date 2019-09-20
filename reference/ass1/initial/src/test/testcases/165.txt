@@ -1,0 +1,1 @@
+Function DemPtuX(A:array[0 .. 10] of integer; N,X : Integer) : Integer;

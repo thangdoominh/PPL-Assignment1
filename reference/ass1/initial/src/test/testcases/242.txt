@@ -1,0 +1,7 @@
+
+        procEdure main();
+        var a:integer;
+        begin
+            a := a = a and then b or else ;
+        end
+        

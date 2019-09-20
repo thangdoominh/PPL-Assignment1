@@ -1,0 +1,6 @@
+
+        proceDure Hello(a, b:integer);
+                begin
+                    writeln("Hello, world!");
+                end
+        

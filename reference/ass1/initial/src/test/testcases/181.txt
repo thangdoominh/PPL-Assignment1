@@ -1,0 +1,4 @@
+Var 
+S     : String;
+error : Integer;
+R     : Real;

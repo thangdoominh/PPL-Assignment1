@@ -1,0 +1,10 @@
+
+        procedure main();
+        begin
+            writeln("Please enter your first name: ");
+            readln(firstname);
+
+            writeln();
+            writeln(message, " ", firstname);
+        end
+        

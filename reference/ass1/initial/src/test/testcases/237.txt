@@ -1,0 +1,10 @@
+
+        Procedure Push(item : Integer);
+        Begin
+            If not IsFull Then
+        Begin
+            myStack[topPointer+1] := item;
+            topPointer := topPointer + 1;
+        End
+        End
+        

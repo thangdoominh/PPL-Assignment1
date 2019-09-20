@@ -1,0 +1,5 @@
+while(i<n) do begin
+If(A[i] < A[i-1]) Then
+Flag :=False; { Cham dut kiem tra, ket qua qua trinh : khong tang }
+i:=i+1;
+end

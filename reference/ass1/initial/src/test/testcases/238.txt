@@ -1,0 +1,6 @@
+
+        Function GetSize() : Integer;
+        Begin
+        GetSize := topPointer;
+        End
+        

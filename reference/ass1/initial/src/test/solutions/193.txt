@@ -1,0 +1,1 @@
+if,copy,(,s,,,i,-,2,*,k,+,1,,,k,),=,copy,(,s,,,i,-,k,+,1,,,k,),then,begin,ok,:=,false,;,exit,(,),;,end,<EOF>

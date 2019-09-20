@@ -1,0 +1,8 @@
+uses crt;
+var i:integer;
+	st:string;
+begin
+	clrscr;
+	st="abcx\tyz";
+	writeln(st);
+end

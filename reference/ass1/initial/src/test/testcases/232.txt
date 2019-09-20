@@ -1,0 +1,8 @@
+
+        Procedure Array1D(A : array[0 .. 10] of integer;N:Integer);
+        begin
+        Procedure Sum(a, c:Real);
+        begin
+        end
+        end
+        

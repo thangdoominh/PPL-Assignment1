@@ -1,6 +1,5 @@
 /**
 *   Student's Name    : Do Minh Thang
-*
 *   Student's ID      : 1713217
 **/
 
@@ -63,13 +62,107 @@ idsingle
 
 // funcdeclaration
 funcdeclaration
-		: (singletype | VOIDTYPE | arraypointertype) ID LB (singletype idtail (COMMA singletype idtail)*)? RB LP block RP
-		;
-block
-		:
+		: (singletype | VOIDTYPE | arraypointertype) ID LB (singletype idtail (COMMA singletype idtail)*)? RB  block?
 		;
 arraypointertype
 		: (singletype | VOIDTYPE)  LSB RSB ;
+block
+		: LP (vardeclaration | statement)* RP
+		;
+statement
+		: ifstmt
+		| dowhilestmt
+		| forstmt
+		| breakstmt
+		| continuestmt
+		| returnstmt
+		| expressionstmt
+		| block
+		;
+ifstmt
+		: IF LB expression RB statement (ELSE statement)?
+		;
+dowhilestmt
+		: DO statement+ WHILE expression SEMI
+		;
+forstmt
+		: FOR LB expression SEMI expression SEMI expression RB statement
+		;
+// BREAK chỉ xuất hiện trong vòng lập for và do while
+breakstmt
+		: BREAK SEMI
+		;
+// CONTINUE chỉ xuất hiện trong vòng lập for và do while
+continuestmt
+		: CONTINUE SEMI
+		;
+returnstmt
+		: RETURN expression SEMI
+		;
+expressionstmt
+		: expression SEMI
+		;
+expression
+		: exp1 ASSIGN_OP expression
+		| exp1
+		;
+exp1
+		: exp1 OR_OP exp2
+		| exp2
+		;
+exp2
+		: exp2 AND_OP exp3
+		| exp3
+		;
+exp3
+		: exp4 (EQUAL_OP | NOT_EQUAL_OP) exp4
+		| exp4
+		;
+exp4
+		: exp5 (LESS_OP | LESS_EQUAL_OP | GREATER_OP | GREATER_EQUAL_OP) exp5
+		| exp5
+		;
+exp5
+		: exp5 (ADD_OP | SUB_OP) exp6
+		| exp6
+		;
+exp6
+		: exp6 (DIV_OP | MUL_OP | MOD_OP) exp7
+		| exp7
+		;
+exp7
+		: (SUB_OP | NOT_OP) exp7
+		| exp8
+		;
+exp8
+		: exp9 LSB expression RSB
+		| exp9
+		;
+exp9
+		: LB expression RB
+		| exp10
+		;
+exp10
+		: operand
+		| funccall
+		;
+operand
+		: INTLIT
+		| FLOATLIT
+		| STRINGLIT
+		| BOOLLIT
+		| ID
+		;
+funccall
+		: ID LB paralist_call? RB
+		;
+paralist_call
+		: para_call (SEMI para_call)*
+		;
+para_call
+		: operand
+		| expression
+		;
 
 // Type value
 INTTYPE     : 'int';
@@ -78,19 +171,13 @@ STRINGTYPE  : 'string';
 FLOATTYPE   : 'float';
 VOIDTYPE    : 'void';
 
-
-
-// 3.2 Comments
-COMMENTS_LINE   : '//' ~[\n\r\t\f]* -> skip;
-COMMENTS_BLOCK  : '/*' .*? '*/' -> skip;
-WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
 // 3.3 Token Set
 // a. Identifiers
-ID          : [_a-zA-Z][_a-zA-Z0-9]*;
 
 // b. Keywords
 BREAK       : 'break';
 CONTINUE    : 'continue';
+RETURN      : 'return';
 ELSE        : 'else';
 FOR         : 'for';
 IF          : 'if';
@@ -99,6 +186,8 @@ WHILE       : 'while';
 TRUE        : 'true';
 FALSE       : 'false';
 
+ID          : [_a-zA-Z][_a-zA-Z0-9]*;
+
 // c. Operators
 ADD_OP              : '+';
 SUB_OP              : '-';
@@ -106,7 +195,7 @@ MUL_OP              : '*';
 DIV_OP              : '/';
 NOT_OP              : '!';
 MOD_OP              : '%';
-OR_OP               : '|';
+OR_OP               : '||';
 AND_OP              : '&&';
 NOT_EQUAL_OP        : '!=';
 EQUAL_OP            : '==';
@@ -143,14 +232,17 @@ BOOLLIT     : TRUE
 			| FALSE
 			;
 
-STRINGLIT   :'"' ('\\' [bfrnt"\\] | ~[\b\f\r\n\t"\\])* '"'{self.text = self.text[1:-1]};
+STRINGLIT   :'"' ('\\' [bfrnt"\\] | ~[\b\f\r\n\t"\\])* '"'
+			{
+				self.text = self.text[1:-1]
+			};
 
-ERROR_CHAR  :.{
-				raise ErrorToken(self.text)
-			}
-			;
+// 3.2 Comments
+COMMENTS_LINE   : '//' ~[\n\r\t\f]* -> skip;
+COMMENTS_BLOCK  : '/*' .*? '*/' -> skip;
+WS          : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
 
-ILLEGAL_ESCAPE  : '"' .*? ('\\' ~[bfrnt"\\] |[\b\f\r\n\t"\\])
+ILLEGAL_ESCAPE  : '"' .*? ('\\' ~[bfrnt"\\] | [\b\f\r\n\t"\\])
 				{
 					raise IllegalEscape(self.text[1:])
 				}
@@ -159,5 +251,10 @@ ILLEGAL_ESCAPE  : '"' .*? ('\\' ~[bfrnt"\\] |[\b\f\r\n\t"\\])
 UNCLOSE_STRING  : '"' ('\\' [bfrnt"\\] | ~[\b\f\r\n\t"\\])*
 				{
 					raise UncloseString(self.text[1:])
+				}
+				;
+ERROR_CHAR      :.
+				{
+					raise ErrorToken(self.text)
 				}
 				;

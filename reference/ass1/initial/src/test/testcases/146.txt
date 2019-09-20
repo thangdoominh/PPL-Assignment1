@@ -1,0 +1,3 @@
+Procedure DrawLine(X : Integer; Y : Integer);
+{ the declaration of the variables in brackets are called parameters }
+Var Counter : Integer; { this is called a local variable }

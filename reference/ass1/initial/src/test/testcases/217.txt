@@ -1,0 +1,21 @@
+
+        Var a,b,c,s,p: real;
+        pROCEDURE main() ;
+        Begin
+        Clrscr();
+        Writeln("Triangle:");
+        Writeln("---------------------------------");
+        Write("a =");readln(a);
+        Write("b =");readln(b);
+        Write("c =");readln(c);
+        If ((a+b)>c)and((b+c)>a)and((a+c)>b) then
+            Begin
+            p:=(a+b+c)/2;
+            s:=sqrt(p*(p-a)*(p-b)*(p-c));
+            Writeln("P= ",2*p);
+            Writeln("S=",s);
+            End
+        Else Writeln(a,", ", b,", ", c, ": Not a triangle!");
+        Readln();
+        End
+        

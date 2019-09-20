@@ -1,0 +1,2 @@
+If(A[i] mod 5=0) then
+S := S+A[i];

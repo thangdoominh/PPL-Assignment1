@@ -1,0 +1,7 @@
+
+        pROCEDURE foo(c: real) ;
+            BEGIN
+            with a , b : integer ; c : array [1 .. 2] of real ;
+            d := c [a] + b ;
+            END
+        

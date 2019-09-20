@@ -1,0 +1,1 @@
+Var,i,:,Integer,;,myIntArray,:,Array,[,1,..,20,],of,Integer,;,myBoolArray,:,Array,[,1,..,20,],of,Boolean,;,<EOF>

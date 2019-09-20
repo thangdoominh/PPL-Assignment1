@@ -1,0 +1,2 @@
+ int bku[123;
+                    int thang;

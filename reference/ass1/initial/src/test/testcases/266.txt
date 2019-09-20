@@ -1,0 +1,8 @@
+
+        function foo(c: real): integer;
+            BEGIN
+            textbackground(brown); {background colour}
+            ClrScr(); {Clear screen with a brown colour. Try run the program without this..}
+            return func(a(1,2))[2]:=1;*
+            END
+        

@@ -1,3 +1,1 @@
-"x y     z \b"	STRINGLIT
-       123	INTLIT
-<EOF>
+Alo,lan,1,Alo,lan,2,<EOF>

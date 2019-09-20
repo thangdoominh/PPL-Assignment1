@@ -1,0 +1,1 @@
+ClrScr(); {Clear screen with a brown colour. Try run the program without this..}

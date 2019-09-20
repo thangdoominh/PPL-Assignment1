@@ -1,2 +1,1 @@
-       abc	STRINGLIT
-<EOF>
+abc,<EOF>

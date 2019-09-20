@@ -1,0 +1,9 @@
+
+        Procedure Insert(A:array[0 .. 10] of REAL;N: Integer; k, X:Integer);
+                Var i :Integer;
+                Begin
+                    For i:=N downto k+ 1 do
+                    A[i] := A[i-1];
+                    A[k] := X;
+                End
+        

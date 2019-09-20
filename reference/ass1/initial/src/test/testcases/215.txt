@@ -1,0 +1,10 @@
+
+        procedure test1() ;
+        bEgin
+	        if a=b then
+	        begin
+		        b := c ;
+	            if(e <> f) then foo(a,c) ;
+	        end
+        eNd
+        

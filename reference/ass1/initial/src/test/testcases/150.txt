@@ -1,0 +1,4 @@
+function foo(c: real): integer;
+BEGIN
+while (1) do reTuRn foo(a+1);
+END

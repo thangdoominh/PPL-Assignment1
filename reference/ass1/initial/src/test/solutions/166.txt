@@ -1,0 +1,1 @@
+while,(,i,<,n,),do,begin,If,(,A,[,i,],<,A,[,i,-,1,],),Then,Flag,:=,False,;,i,:=,i,+,1,;,end,<EOF>

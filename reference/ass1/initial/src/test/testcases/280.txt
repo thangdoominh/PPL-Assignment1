@@ -1,0 +1,8 @@
+
+        Var
+	    i : Integer;
+	        myIntArray : Array[1 .. 20] of Integer;
+	        myBoolArray : Array[1 .. 20] of Boolean;
+            myStringArray : Array[1 .. 20] of String;
+	        myRealArray : Array[1 .. 20] of Real;
+        

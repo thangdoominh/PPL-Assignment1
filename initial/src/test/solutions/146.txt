@@ -1,2 +1,1 @@
-     cuong	ID
-Error Token $
+cuong,Error Token $

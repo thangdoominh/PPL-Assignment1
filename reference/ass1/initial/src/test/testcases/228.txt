@@ -1,0 +1,13 @@
+
+        Procedure Array1D(A : array[0 .. 10] of integer;N:Integer);
+                Var i: Integer;
+                Begin
+                Write("N=");
+                Readln( N);
+                For i:=0 to N do
+                    Begin
+                        Write("N[", i,"]= ");
+                        Readln( A[i] );
+                    End
+                End
+        

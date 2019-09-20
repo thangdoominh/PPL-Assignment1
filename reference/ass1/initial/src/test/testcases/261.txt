@@ -1,0 +1,9 @@
+
+        pROCEDURE foo(c: real) ;
+            BEGIN
+                whILe(a<>1) do beGin
+                    while(1) do x:=1;
+                    if(a=1) then begin
+                end
+            END
+        

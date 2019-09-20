@@ -1,0 +1,7 @@
+
+                var
+        a, b, c: integer;
+        procedure display();
+        var
+        x, y, z: integer;
+        

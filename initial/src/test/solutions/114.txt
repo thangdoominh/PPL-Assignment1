@@ -1,2 +1,1 @@
-do\b minh   thang	STRINGLIT
-<EOF>
+do\b minh   thang,<EOF>

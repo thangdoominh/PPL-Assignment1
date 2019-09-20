@@ -1,0 +1,10 @@
+
+            procedure main();
+            begin
+                a:= 5;
+
+                if( a < 20 ) then
+                    writeln("a is less than 20 " );
+                writeln("value of a is : ", a);
+            end
+            

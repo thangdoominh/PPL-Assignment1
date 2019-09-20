@@ -1,0 +1,2 @@
+Var flag :boolean;
+i :Integer;

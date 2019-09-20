@@ -1,0 +1,1 @@
+for,i,:=,n,-,1,doWnTO,0,do,s,:=,s,+,a,[,i,],;,<EOF>

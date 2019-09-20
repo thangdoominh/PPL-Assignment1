@@ -1,2 +1,1 @@
-  abc\nabc	STRINGLIT
-<EOF>
+abc\nabc,<EOF>

@@ -1,2 +1,1 @@
-chan\n qua 	STRINGLIT
-<EOF>
+chan\n qua ,<EOF>

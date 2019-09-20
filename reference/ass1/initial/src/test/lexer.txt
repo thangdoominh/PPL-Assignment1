@@ -1,0 +1,116 @@
+def Test_001(self):
+        self.assertTrue(TestLexer.test("_ABC_abc", "_ABC_abc,<EOF>", 1))
+    
+    def Test_002(self):
+        self.assertTrue(TestLexer.test("_123 123", "_123, 123,<EOF>", 2))
+
+    def Test_003(self):
+        self.assertTrue(TestLexer.test("123123", "123123,<EOF>", 3))
+    
+    def Test_004(self):
+        self.assertTrue(TestLexer.test("CSVNmmZZZ", "CSVNmmZZZ,<EOF>", 4))
+
+    def Test_005(self):
+        self.assertTrue(TestLexer.test("VN123", "VN123,<EOF>", 5))
+
+    def Test_006(self):
+        self.assertTrue(TestLexer.test("123_VN123", "123, _VN123,<EOF>", 6))
+
+    def Test_007(self):
+        self.assertTrue(TestLexer.test("bla_bla_bla", "bla_bla_bla,<EOF>", 7))
+
+    def Test_008(self):
+        self.assertTrue(TestLexer.test("ONE_TWO_THREE", "ONE_TWO_THREE,<EOF>", 8))
+
+    def Test_009(self):
+        self.assertTrue(TestLexer.test("ONE_2_THREE", "ONE_2_THREE,<EOF>", 9))
+
+    def Test_010(self):
+        self.assertTrue(TestLexer.test("0ONE_2_THREE4_FIVE", "0, ONE_2_THREE4_FIVE,<EOF>", 10))
+
+    def Test_011(self):
+        self.assertTrue(TestLexer.test("function f()", "function, f, (, ),<EOF>", 11))
+
+    def Test_012(self):
+        self.assertTrue(TestLexer.test("\"This is normal string \"", "\"This is normal string\" ,<EOF>", 12))
+
+    def Test_013(self):
+        self.assertTrue(TestLexer.test(";asd @", ";, asd, ErrorToken @,<EOF>", 13))
+
+    def Test_014(self):
+        self.assertTrue(TestLexer.test("//Viet Dep Trai", "<EOF>", 14))
+
+    def Test_015(self):
+        self.assertTrue(TestLexer.test("(*Viet Dep Trai*)", "<EOF>", 15))
+
+    def Test_016(self):
+        self.assertTrue(TestLexer.test("{Viet Dep Trai} return", "return,<EOF>", 16))
+
+    def Test_017(self):
+        self.assertTrue(TestLexer.test("1. .00 00.e+00 .00E-010 120.10e100 01.10 100E3", "1.,.00,00.e+00,.00E-010,120.10e100,01.10,100E3,<EOF>", 17))
+    
+    def Test_018(self):
+        self.assertTrue(TestLexer.test("ONE[1]", "ONE, [, 1, ], <EOF>", 18))
+    
+    def Test_019(self):
+        self.assertTrue(TestLexer.test("1 := 2 + 3 * 4", "1, :, =, 2, +, 3, *, 4, <EOF>", 19))
+    
+    def Test_020(self):
+        self.assertTrue(TestLexer.test("\"Unclose string", "Unclosed String: Unclose string,<EOF>", 20))
+    
+    def Test_021(self):
+        self.assertTrue(TestLexer.test("3=5=r=10;{aAs\a\b\c\d\e\f\g\h\i\j\k\l\m\\q'N}i=5;","3,=,5,=,r,=,10,;,i,=,5,;,<EOF>",21))
+    
+    def Test_022(self):
+        self.assertTrue(TestLexer.test("break continue for to downto do if then else return while begin end function","break,continue,for,to,downto,do,if,then,else,return,while,begin,end,function,<EOF>",22))
+    
+    def Test_023(self):
+        self.assertTrue(TestLexer.test("procedure var true false array of real boolean integer string not and or div mod","procedure,var,true,false,array,of,real,boolean,integer,string,not,and,or,div,mod,<EOF>",23))
+    
+    def Test_024(self):
+        self.assertTrue(TestLexer.test("+-*/not mod or and <> = < > <= >= div","+,-,*,/,not,mod,or,and,<>,=,<,>,<=,>=,div,<EOF>",24))
+    
+    def Test_025(self):
+        self.assertTrue(TestLexer.test("[]();:..,","[,],(,),;,:,..,,,<EOF>",25))
+    
+    def Test_026(self):
+        self.assertTrue(TestLexer.test("askjdh_3497jasd+kjd","askjdh_3497jasd,+,kjd,<EOF>",26))
+    
+    def Test_027(self):
+        self.assertTrue(TestLexer.test("foo(2)[3+x]", "foo, (, 2, ), [,3,+,x,],<EOF>", 27))
+
+    def Test_028(self):
+        self.assertTrue(TestLexer.test("ONE 2 THREE ^ FOUR", "ONE, 2, THREE, ErrorToken ^, <EOF>", 28))
+
+    def Test_029(self):
+        self.assertTrue(TestLexer.test("function f ( ) : integer ;begin return 200; end", "function, f, (, ), :, integer, ;,begin, return, 200,;, end,<EOF>", 29))
+
+    def Test_030(self):
+        self.assertTrue(TestLexer.test("with i : integer ; main : integer ; f : integer ; do", "with, i, :, integer, ;, main, :, integer, ;, f, :, integer, ;, do,<EOF>", 30))
+
+    def Test_031(self):
+        self.assertTrue(TestLexer.test("procedure main ();", "procedure, main, (, ), ;,<EOF>", 31))
+
+    def Test_032(self):
+        self.assertTrue(TestLexer.test("var i : array [1 ..5] of integer ;", "var, i, :, array, [,1, ..,5,], of, integer, ;,<EOF>", 32))
+
+    def Test_033(self):
+        self.assertTrue(TestLexer.test("\"dkjoiue\\s\"","Illegal Escape In String: \"dkjoiue", 33))
+
+    def Test_034(self):
+        self.assertTrue(TestLexer.test("\"aA\tqq\\a\rd\n\fsVNgge\"","Illegal Escape In String: \"aA", 34))
+
+    def Test_035(self):
+        self.assertTrue(TestLexer.test("uses crt;\nvar i:integer;\n\tst:string;\nbegin\n\tclrscr;\n\tst=\"abcx\\tyz\";\n\twriteln(st);\nend","uses,crt,;,var,i,:,integer,;,st,:,string,;,begin,clrscr,;,st,=,\"abcx\\tyz\",;,writeln,(,st,),;,end,<EOF>", 35))
+
+    def Test_036(self):
+        self.assertTrue(TestLexer.test("\"aAsVN\r\rgge","Illegal Escape In String: \"aAsVN", 36))
+
+    def Test_037(self):
+        self.assertTrue(TestLexer.test("procedure goo( x : array [ 1 ..2] of real);", "procedure, goo, (, x, :, array, [, 1, .., 2, ], of, real, ), ;,<EOF>", 37))
+
+    def Test_038(self):
+        self.assertTrue(TestLexer.test("if (1) then return 2.3; //CORRECT else return 2 ;", "if, (, 1, ), then, return, 2.3, ;,<EOF>", 38))
+
+    def Test_039(self):
+        self.assertTrue(TestLexer.test("a := b [10] := foo()[3] := x := 1 ;", "a, :, =, b, [, 10, ], :, =, foo, (, ), [, 3, ], :, =, x, :, =, 1, ;,<EOF>", 39))

@@ -1,0 +1,10 @@
+
+        Procedure Pop(item : Integer);
+        Begin
+            If not IsFull Then
+        Begin
+            item:= myStack[topPointer];
+            topPointer := topPointer - 1;
+        End
+        End
+        

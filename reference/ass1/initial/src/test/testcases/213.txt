@@ -1,0 +1,7 @@
+
+        function foo(c: real): real ;
+        var x: integer ;
+        BEGIN
+         a[m+n] := a[m+1] := foo()[m*1] := a[a div 3] := (a>m) and then (b<n);
+        END
+        

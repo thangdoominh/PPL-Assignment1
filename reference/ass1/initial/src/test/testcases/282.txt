@@ -1,0 +1,10 @@
+
+        Procedure Main();
+        Begin
+            While 1 do
+            Begin
+                myIntArray[i] := 1;
+                myBoolArray[i] := True;
+            End
+        End
+        

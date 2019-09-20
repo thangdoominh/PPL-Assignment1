@@ -1,0 +1,2 @@
+If(b=0) then Writeln(" Phuong trinh co vo so nghiem");
+Else writeln("Phuong tring vo nghiem");

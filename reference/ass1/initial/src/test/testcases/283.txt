@@ -1,0 +1,5 @@
+
+        Procedure Main();
+        Begin
+            While 1 do 2;
+        

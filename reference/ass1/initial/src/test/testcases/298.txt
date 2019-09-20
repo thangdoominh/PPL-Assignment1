@@ -1,0 +1,9 @@
+
+        function fun(c: real): sTRIng;
+            BEGIN
+                with c , d : integer ; 
+                c : array [1 .. 2] of real ;
+                do
+                with a , b : integer ;
+            END
+        

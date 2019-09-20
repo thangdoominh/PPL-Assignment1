@@ -1,0 +1,9 @@
+
+        Procedure main();
+        Begin
+            For Counter := 1 to 7 do { it"s easy and fast! }
+                Writeln("for loop");
+            Readln();
+            return ret[1][1]++;
+        End
+        

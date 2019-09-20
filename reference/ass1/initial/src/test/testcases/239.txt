@@ -1,0 +1,15 @@
+
+        
+        Var Ch : String;
+
+        Procedure main();
+        Begin
+        Writeln("Press \"\"q\"\" to exit...");
+        Ch := Readkey();
+        While Ch <> "q" do
+        Begin
+            Writeln("Please press \"\"q\"\" to exit.");
+            Ch := Readkey();
+        End
+        End
+        

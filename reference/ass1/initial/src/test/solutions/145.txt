@@ -1,0 +1,1 @@
+write,(,Nhap ten cua ban:,),;,readln,(,name,),;,write,(,Nhap ho cua ban:,),;,readln,(,surname,),;,<EOF>
