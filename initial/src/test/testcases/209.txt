@@ -1,1 +1,2 @@
- int bku [3], thang [1];
+void _int(int a){}
+		            

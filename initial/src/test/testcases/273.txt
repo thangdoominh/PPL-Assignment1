@@ -1,0 +1,9 @@
+int main()
+                    {
+                        int luachon;
+                        menu();
+                        scanf("%d",luachon);
+                        switch(luachon);
+                        {}
+                    return 0;
+                    }

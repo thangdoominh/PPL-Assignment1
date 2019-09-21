@@ -1,0 +1,6 @@
+void main(string a, boolean b){
+                        boolean a;
+                        int b,b[10];
+                        string c[12],d,e,f;
+                    }
+                    int[] abc(){}

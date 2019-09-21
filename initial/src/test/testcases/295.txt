@@ -1,0 +1,3 @@
+void main(){
+            (!!ab)[foo("true\n",true,true,abc,_xyz)[a+b]];
+            }

@@ -1,0 +1,10 @@
+void main(){
+                do
+                {
+                    a+b;
+                }
+                while ;
+                do{
+
+                }while(a>0);
+            }

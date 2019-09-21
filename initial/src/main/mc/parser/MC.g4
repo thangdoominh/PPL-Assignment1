@@ -62,7 +62,13 @@ idsingle
 
 // funcdeclaration
 funcdeclaration
-		: (singletype | VOIDTYPE | arraypointertype) ID LB (singletype idtail (COMMA singletype idtail)*)? RB  block?
+		: (singletype | VOIDTYPE | arraypointertype) ID LB paralist_decla? RB  block?
+		;
+paralist_decla
+		: paradecla (COMMA paradecla)*
+		;
+paradecla
+		: (BOOLTYPE|FLOATTYPE|INTTYPE|STRINGTYPE) (ID|ID LSB RSB)
 		;
 arraypointertype
 		: (singletype | VOIDTYPE)  LSB RSB ;
@@ -97,7 +103,7 @@ continuestmt
 		: CONTINUE SEMI
 		;
 returnstmt
-		: RETURN expression SEMI
+		: RETURN expression? SEMI
 		;
 expressionstmt
 		: expression SEMI
@@ -157,13 +163,26 @@ funccall
 		: ID LB paralist_call? RB
 		;
 paralist_call
-		: para_call (SEMI para_call)*
+		: para_call (COMMA para_call)*
 		;
 para_call
 		: operand
 		| expression
 		;
+BOOLLIT     : TRUE
+			| FALSE
+			;
+INTLIT      : [0-9]+;
 
+FLOATLIT    : FRAC
+			| EXPONENT
+			;
+
+FRAC        : INTLIT?'.'INTLIT
+			| INTLIT'.'INTLIT?
+			;
+
+EXPONENT    : (FRAC|INTLIT)[eE][-]?INTLIT ;
 // Type value
 INTTYPE     : 'int';
 BOOLTYPE    : 'boolean';
@@ -216,39 +235,22 @@ SEMI    : ';';
 COMMA   : ',';
 
 // 3.5 Literals
-INTLIT      : [0-9]+;
 
-FLOATLIT    : FRAC
-			| EXPONENT
-			;
 
-FRAC        : INTLIT?'.'INTLIT
-			| INTLIT'.'INTLIT?
-			;
-
-EXPONENT    : (FRAC|INTLIT)[eE][+-]?INTLIT ;
-
-BOOLLIT     : TRUE
-			| FALSE
-			;
-
-STRINGLIT   :'"' ('\\' [bfrnt"\\] | ~[\b\f\r\n\t"\\])* '"'
+WS          : [ \b\f\t\r\n] -> skip ;
+STRINGLIT   :'"' ('\\' [bfrnt"\\] | ~[\b\f\r\n\t"\\] )* '"'
 			{
 				self.text = self.text[1:-1]
-			};
-
-// 3.2 Comments
+			}
+			;
 COMMENTS_LINE   : '//' ~[\n\r\t\f]* -> skip;
 COMMENTS_BLOCK  : '/*' .*? '*/' -> skip;
-WS          : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
-
-ILLEGAL_ESCAPE  : '"' .*? ('\\' ~[bfrnt"\\] | [\b\f\r\n\t"\\])
+ILLEGAL_ESCAPE  : '"'(~[\n"\\] | '\\' [bfrtn"\\])* ('\\' ~[bnrft"])
 				{
 					raise IllegalEscape(self.text[1:])
 				}
 				;
-// tai sao nhay doi " lai khong can xet \ o truoc
-UNCLOSE_STRING  : '"' ('\\' [bfrnt"\\] | ~[\b\f\r\n\t"\\])*
+UNCLOSE_STRING  : '"' ( ~[\b\f\r\t\n"\\] | '\\' [bfrnt"\\])*
 				{
 					raise UncloseString(self.text[1:])
 				}

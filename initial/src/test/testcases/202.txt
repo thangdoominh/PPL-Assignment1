@@ -1,3 +1,2 @@
-int main () {
-            putIntLn(4);
-        }
+ int ;
+		            

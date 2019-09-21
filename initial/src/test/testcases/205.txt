@@ -1,2 +1,2 @@
- float abcd;
-            int thang;
+ boolean ___a[3];
+		            

@@ -1,2 +1,2 @@
- int bku[123;
-                    int thang;
+void (int thang){}
+		            

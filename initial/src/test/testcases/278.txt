@@ -1,0 +1,8 @@
+void main(string a, boolean b){}
+                    int[] abc(){
+                        if(a+b-c) a+b;
+                        else{
+                            do a+b;b+c;c>d+f;
+                            while b[10];
+                    }
+                    }

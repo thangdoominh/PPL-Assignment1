@@ -1,2 +1,3 @@
- int bk5];
-                    int thang;
+float a,b,c,d[2];
+                    int a,b[2];
+		            

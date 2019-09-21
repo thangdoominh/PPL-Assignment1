@@ -1,1 +1,2 @@
-int main( {}
+int thang(int a, int b, float c, int f[]){}
+		            

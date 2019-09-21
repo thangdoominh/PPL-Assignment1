@@ -339,7 +339,7 @@ class LexerSuite(unittest.TestCase):
     #?????? khoong chac
     def test_overall_187(self):
         input = """ Commentline // a \r b \t c \b d\f """
-        expect = "Commentline,b,c,Error Token "
+        expect = "Commentline,b,c,d,<EOF>"
         self.assertTrue(TestLexer.checkLexeme(input, expect, 187))
     def test_overall_188(self):
         input = """ test cmt // 1 \r\r 2\n\n3\t """
@@ -379,11 +379,11 @@ class LexerSuite(unittest.TestCase):
         self.assertTrue(TestLexer.checkLexeme(input, expect, 196))
     def test_overall_197(self):
         input = """ "string \\\\\c "  """
-        expect = "Unclosed String: string \\\\"
+        expect = "Illegal Escape In String: string \\\\\c"
         self.assertTrue(TestLexer.checkLexeme(input, expect, 197))
     def test_overall_198(self):
         input = """ 3dau "abc \\\est"  """
-        expect = "3,dau,Unclosed String: abc \\est"
+        expect = "3,dau,abc \\\est,<EOF>"
         self.assertTrue(TestLexer.checkLexeme(input, expect, 198))
 
     def test_wrong_token_199(self):

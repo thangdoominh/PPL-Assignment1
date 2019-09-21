@@ -1,1 +1,5 @@
- string bku[]
+void main(){boolean a;
+                    int b,b[10];
+                    string c[12],d,e,f;
+                    float a[25];
+            }

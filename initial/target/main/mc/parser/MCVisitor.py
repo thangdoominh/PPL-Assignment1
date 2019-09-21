@@ -54,6 +54,16 @@ class MCVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by MCParser#paralist_decla.
+    def visitParalist_decla(self, ctx:MCParser.Paralist_declaContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MCParser#paradecla.
+    def visitParadecla(self, ctx:MCParser.ParadeclaContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by MCParser#arraypointertype.
     def visitArraypointertype(self, ctx:MCParser.ArraypointertypeContext):
         return self.visitChildren(ctx)

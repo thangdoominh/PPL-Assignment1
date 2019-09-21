@@ -1,1 +1,2 @@
- int println(){}
+void[] abc(int a[], int b[]){}
+		

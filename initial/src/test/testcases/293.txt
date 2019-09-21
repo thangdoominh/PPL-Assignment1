@@ -1,0 +1,9 @@
+void main(){
+            (!!a-----b)[foo("test",true,true,abc,_xyz)[a+b]];
+            do{
+                if(!!!a)
+                {
+                    return;
+                }
+            }while (a>0)
+            }

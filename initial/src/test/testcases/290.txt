@@ -1,0 +1,8 @@
+void main(){
+            main(a+b[c-d]);
+            {
+                if (a) {
+                    a;
+                } else b;
+            }
+        }

@@ -89,6 +89,24 @@ class MCListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MCParser#paralist_decla.
+    def enterParalist_decla(self, ctx:MCParser.Paralist_declaContext):
+        pass
+
+    # Exit a parse tree produced by MCParser#paralist_decla.
+    def exitParalist_decla(self, ctx:MCParser.Paralist_declaContext):
+        pass
+
+
+    # Enter a parse tree produced by MCParser#paradecla.
+    def enterParadecla(self, ctx:MCParser.ParadeclaContext):
+        pass
+
+    # Exit a parse tree produced by MCParser#paradecla.
+    def exitParadecla(self, ctx:MCParser.ParadeclaContext):
+        pass
+
+
     # Enter a parse tree produced by MCParser#arraypointertype.
     def enterArraypointertype(self, ctx:MCParser.ArraypointertypeContext):
         pass

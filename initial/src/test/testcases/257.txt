@@ -1,0 +1,3 @@
+void main(){
+                (a----b)[foo() + 2+goo(a[2])];
+            }

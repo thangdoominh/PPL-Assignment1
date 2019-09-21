@@ -1,0 +1,3 @@
+void main(){
+            do a+b; while b[10];
+            }

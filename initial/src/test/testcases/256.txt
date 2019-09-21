@@ -1,0 +1,3 @@
+void main(){
+                a>b+c*-a[b+c+foo(true,"test")];
+            }
