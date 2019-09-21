@@ -1,4 +1,6 @@
-void main(){
-            for(i=0;i<a[10];i+1)
-                 return;return;return;
-            }
+
+				void main()
+				{
+                    x=y;
+                }
+				

@@ -1,10 +1,9 @@
-void main(){
-                do
-                {
-                    a+b;
-                }
-                while ;
-                do{
 
-                }while(a>0);
-            }
+				void main(){
+                    for(foo(a[3]); !fap(a+b,a*b[3+2*6[3]]); i = i + 3.3e-12)
+                        do
+                            A = A(((((3)))));
+                            B = (3.e-2+0.e3)[(4.5+2)[abc]];
+                        while(A || B && C || D && E == F);
+                }
+	            

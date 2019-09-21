@@ -1,6 +1,9 @@
-void main(string a, boolean b){
-                        boolean a;
-                        int b,b[10];
-                        string c[12],d,e,f;
+void main(string a, boolean b){}
+                    int[] abc(){
+                        if(a+b-c) a+b;
+                        else{
+                            do a+b;b+c;c>d+f;
+                            while b[10];
                     }
-                    int[] abc(){}
+                    }
+	            

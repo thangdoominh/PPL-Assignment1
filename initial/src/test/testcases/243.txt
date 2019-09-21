@@ -1,6 +1,8 @@
-void main(){
-                a>b;
-                a<b;
-                a>=b;
-                a<=b;
-            }
+
+				void main()
+				{
+                    x/y;
+                    y*x;
+                    a%a;
+                }
+				

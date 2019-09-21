@@ -1,3 +1,7 @@
-void main(string a, boolean b){
-            a - b + c / d * e;
+void main(){
+            if(!!a-----b)
+            {
+                (foo()*2)[foo("test",true,true,abc,_xyz)[a+b]];
+            }
         }
+	            

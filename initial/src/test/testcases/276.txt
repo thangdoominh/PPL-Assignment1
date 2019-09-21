@@ -1,28 +1,17 @@
-void thua_so_nguyen_to()
-                    {
-                        fflush(stdin);
-                        int arr[MAX];
-                        char str[2048];
-                        printf("Input: ");
-                        fprintf(file_o,"*********NEW TEST*********\n");
-                        for(int m=0;m<=j;m++)
+void main(){
+            (!!a-----b)[foo("test",true,true,abc,_xyz)[a+b]];
+            }
+            void main(int a, float b, string c[]){
+                    string c[12],d,e,f;
+                    if(a+b-c) a+b;
+                    else{
+                        do a+b;b+c;c>d+f;
+                        while b[10];
+                        if(true)
                         {
-                            int k=2,temp;
-                            fprintf(file_o,"%d=",arr[m]);
-                            while (arr[m] != 1)
-                            {
-                                if (arr[m] % k == 0)
-                                {
-                                    if(arr[m]!=temp)
-                                    fprintf(file_o,"*");
-                                    fprintf(file_o,"%d",k);
-                                    arr[m] = k;
-                                }
-
-                                else
-                                    k+2;
-                            }
+                            {{{{{return;}}}}}
                         }
-                        fclose(file_o);
-
                     }
+                    
+            }
+		        

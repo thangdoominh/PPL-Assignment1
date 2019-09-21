@@ -1,3 +1,16 @@
-void main(){
-            (!!a-----b)[foo("test",true,true,abc,_xyz)[a+b][a][2]];
-            }
+
+				void main(){
+                    int i;
+                    for(i = 3; i < infinity; i = i + 1)
+                        if(shitHappens)
+                            whoCares();
+                    for(exp; exp; exp){
+                        {
+                            stillWhoCares();
+                        }
+                    }
+                    {
+                        nowThisIsFun();
+                    }
+                }
+	            

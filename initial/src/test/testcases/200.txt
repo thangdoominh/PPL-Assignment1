@@ -1,3 +1,6 @@
-Alo lan	 1 //abc 
-dong2
- dong3 
+void thang()
+			{
+				int a;
+				float b[3];
+			}
+            

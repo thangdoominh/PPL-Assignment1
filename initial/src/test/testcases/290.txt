@@ -1,8 +1,6 @@
-void main(){
-            main(a+b[c-d]);
-            {
-                if (a) {
-                    a;
-                } else b;
-            }
-        }
+
+				void main(){}
+                    int[] xx(){boolean a;
+                    int b,b[10];
+                    string c[12],d,e,f;}
+	            

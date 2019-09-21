@@ -1,3 +1,7 @@
-void main(){
-                a||b;
-            }
+
+				void main()
+				{
+                    x||y||z||q||p;
+                    x == y;
+                }
+				

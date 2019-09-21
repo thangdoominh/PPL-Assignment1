@@ -1,8 +1,10 @@
 void main(string a, boolean b){}
                     int[] abc(){
-                        if(a+b-c) a+b;
+                        if(1) 2+3;
                         else{
                             do a+b;b+c;c>d+f;
-                            while b[10];
+                            while x[1];
+                        }
                     }
-                    }
+
+	            

@@ -1,3 +1,5 @@
-void main(string a, boolean b){
-            if (a) else ;
-        }
+
+				void main(){
+                    (x---b)[foo(x,-----a)[a+b]];
+                }
+	            

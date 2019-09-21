@@ -1,4 +1,11 @@
-void main(){
-            {a+b;}
-            {b+c;}
-            }
+
+				void main(){
+                    do{
+                        sitDown;
+                        beHumble;
+                    }while(living);
+                    whiLe(feeling);
+                    whiLe(breathing);
+                    whIle(youStillCan);
+                }
+	            

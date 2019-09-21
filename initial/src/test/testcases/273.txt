@@ -1,9 +1,5 @@
-int main()
-                    {
-                        int luachon;
-                        menu();
-                        scanf("%d",luachon);
-                        switch(luachon);
-                        {}
-                    return 0;
-                    }
+
+				void main(string a, boolean b){
+                a =x ;
+        }
+	            

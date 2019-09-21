@@ -1,3 +1,7 @@
-void main(){
-                a+b+C-d-e+f-g;
-            }
+
+				void main()
+				{
+                    a==b==c!=d;
+                    x == y;
+                }
+				

@@ -1,3 +1,5 @@
-void main(){
-            do a+b; while b[10];
+void main(){boolean a;
+                    int b,b[10];
+                    string c[12],d,e,f;
+                    float a[25];
             }

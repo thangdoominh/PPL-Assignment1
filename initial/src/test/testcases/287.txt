@@ -1,3 +1,4 @@
-void main(string a, boolean b){
-            do ; while a;
-        }
+void main(){
+                a>b+c*-a[b+c+foo(true,"test")];
+            }
+	            

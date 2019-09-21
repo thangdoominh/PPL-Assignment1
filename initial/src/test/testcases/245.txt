@@ -1,4 +1,9 @@
-void main(){
-            a+b;
-            c-d;
-            }
+
+				void main()
+				{
+                    x<y;
+                    x>y;
+                    x>=y;
+                    x<=y;
+                }
+				

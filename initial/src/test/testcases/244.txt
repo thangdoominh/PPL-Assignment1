@@ -1,4 +1,7 @@
-void main(){
-                a>b>c>d>=e>=f;
-                a<=d<abc;
-            }
+
+				void main()
+				{
+                    a+b;
+                    c-d;
+                }
+				

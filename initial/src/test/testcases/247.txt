@@ -1,5 +1,6 @@
-void main(){
-                a/b;
-                a*b;
-                a%b;
-            }
+
+				void main()
+				{
+                    x+b+c-y-e+f-g;
+                }
+				

@@ -1,4 +1,7 @@
-void main(){
-                a==b==c!=d;
-                a!=c==e;
-            }
+
+				void main()
+				{
+                    a==b==c!=d;
+                    a!=c==e;
+                }
+				

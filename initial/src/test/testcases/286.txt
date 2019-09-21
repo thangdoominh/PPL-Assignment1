@@ -1,3 +1,4 @@
-void main(string a, boolean b){
-            return a / b * c - d + e != true;
-        }
+void main(){
+                abcd==b;
+                abc!=b;
+	            }

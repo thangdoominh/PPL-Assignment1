@@ -1,3 +1,18 @@
-void main(){
-            (!!a-----b)[foo("test")[a+b]];
-            }
+
+	            void main(){
+                    letMakeAStair(true);
+                    if(stair){
+                        //do nothing
+                    }
+                    else
+                        if(stair){
+                            //do nothing}}}}}}
+                        }
+                        else
+                            if(stair){
+                                {// do nothing}
+                            }}
+                            else{
+                                {// do nothing}
+                }}}
+	            

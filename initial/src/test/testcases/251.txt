@@ -1,3 +1,6 @@
-void main(){
-                a[12];
-            }
+
+				void main()
+				{
+                    (y--x)[foo() + x + goo( y[10])];
+                }
+				

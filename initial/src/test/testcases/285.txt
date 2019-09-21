@@ -1,3 +1,5 @@
-int main() {
-            bob(2)[3 + abc + foo(2)[65 + fob(2) * 7 + (14 || 5)]];
-        }
+
+				void main(){
+                    (x---b)[foo(xa,-----a)[a-b]];
+                }
+	            

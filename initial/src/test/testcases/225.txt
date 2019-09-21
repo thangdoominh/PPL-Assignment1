@@ -1,6 +1,5 @@
 void main(){
-            for(i=0;i<a[10];i+1)
-                 for(i=0;i<a[10];i+1)
-                    for(i=0;i<a[10];i+1)
-                        do a+b; while b[10];
+            do a+b;b+c;c>d+f+g;
+            while (b[10]);
             }
+		

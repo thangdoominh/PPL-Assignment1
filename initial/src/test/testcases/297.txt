@@ -1,7 +1,13 @@
-void main(){
-            if(!!a-----b)
-            {
-                (foo()*2)[foo("test",true,true,abc,_xyz)[a+b]];
-            }
 
-            }
+				void main(){
+                    for(test; all; statements)
+                        if(thisTestcase == true)
+                            do
+                                "Yeah you nailed the statements";
+                                break;
+                                return true;
+                                continue;
+                            while(stillRunning());
+                    printf("Congrats!");
+                }
+	            

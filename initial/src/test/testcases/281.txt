@@ -1,3 +1,2 @@
-void main(string a, boolean b){
-            if () a + b;
-        }
+int var, var[9];
+	            

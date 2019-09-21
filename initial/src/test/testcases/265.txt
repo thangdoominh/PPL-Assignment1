@@ -1,5 +1,5 @@
 
-            void main(int a, float b, string c[],){
-                    string c[12],d,e,f;
-                    if(a+b-c) a+b;
-                    }
+				void main(){
+                    (!!ab)[foo("true\n",true,true,abc,_xyz)[a+b]];
+                }
+	            

@@ -1,4 +1,5 @@
 void main(){
-            for(i=0;i<a[10];i+1)
-                 continue;continue;continue;
+            for(i=1;i<x[5];i+1)
+                 return;return x+b+c-d;return;
             }
+		

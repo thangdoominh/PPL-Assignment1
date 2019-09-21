@@ -1,3 +1,6 @@
-void main(){
-                a&&!b+c+-d;
-            }
+
+				void main()
+				{
+                    (!!x----y)[foo("thy")[x+y]];
+                }
+				

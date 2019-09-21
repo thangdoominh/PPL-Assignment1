@@ -1,3 +1,6 @@
-void main(){
-                foo();
-            }
+
+				void main()
+				{
+                    x<y-c*-a[x+foo(true,"test")];
+                }
+				

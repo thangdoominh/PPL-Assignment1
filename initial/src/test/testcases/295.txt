@@ -1,3 +1,13 @@
-void main(){
-            (!!ab)[foo("true\n",true,true,abc,_xyz)[a+b]];
-            }
+
+				void main(){
+                    if(believe == true)
+                        stronger = yes;
+                        if(kind == true)
+                            better = yes;
+                            if(fear == no)
+                                success = yes;
+                    else{
+                        cout("Keep fighting!");
+                    }
+                }
+	            

@@ -1,4 +1,6 @@
-void main(){
-                -a;
-                !b;
-            }
+
+				void main()
+				{
+                    x[99];
+                }
+				

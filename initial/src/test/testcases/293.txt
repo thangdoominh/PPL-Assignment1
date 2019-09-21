@@ -1,9 +1,8 @@
-void main(){
-            (!!a-----b)[foo("test",true,true,abc,_xyz)[a+b]];
-            do{
-                if(!!!a)
-                {
-                    return;
+
+				string[] moreThanICanSay(string toYou){
+                    printf("I love you!");
                 }
-            }while (a>0)
-            }
+                float[] countNumbers(){}
+                int var, var1, var2[999];
+                boolean var[999], bool[0];
+	            

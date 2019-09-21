@@ -1,4 +1,9 @@
-void main(){
-            for(i=0;i<a[10];i+1)
-                return;
-            }
+
+				boolean first;
+                void createPointer(int a, boolean b[]){
+                    int a, b, c;
+                    int[] main(){}
+                }
+                float beHumble(){}
+                int second;
+				

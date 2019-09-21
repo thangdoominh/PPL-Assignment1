@@ -1,3 +1,10 @@
-void main(string a, boolean b){
-            if (a;) a;
-        }
+
+				boolean first;
+                string createPointer(int a, boolean b[]){
+                    {
+                        {}
+                    }
+                }
+                float beHumble(){}
+                int second;
+	            

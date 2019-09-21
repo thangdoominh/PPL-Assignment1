@@ -1,5 +1,5 @@
-int main() {
-                /* adasd 
-                do return; while 1;
-            } 
-        }*/
+
+				void main(){
+                    (!x---b)[foo(xxx,-----a)[a+b]];
+                }
+	            

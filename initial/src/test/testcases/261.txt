@@ -1,3 +1,6 @@
-void main(){
-            (!!a-----b)[foo("test",true,true,abc,_xyz)[a+b]];
-            }
+
+	            void main(int a, float b, string c[],){
+                    string c[12],d,e,f;
+                    if(a+b-c) a+b;
+                    }
+	            
